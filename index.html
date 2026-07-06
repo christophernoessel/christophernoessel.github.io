@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildhollow Vale — Gazetteer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>Wildhollow Vale <span class="subtitle">— a gazetteer of the spell farm</span></h1>
+
+  <div class="controls">
+    <div class="control-group" id="date-group">
+      <label>Local date</label>
+      <div class="date-row">
+        <select id="gnome-month"></select>
+        <input type="number" id="gnome-day" min="1" max="45" step="1" aria-label="Day of month">
+        <label class="longnight-toggle" id="longnight-toggle-wrap" hidden>
+          <input type="checkbox" id="longnight-toggle"> Longnight day
+        </label>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="real-date">Real-world day of year</label>
+      <input type="date" id="real-date">
+    </div>
+
+    <div class="control-group">
+      <label for="time-of-day">Time of day</label>
+      <select id="time-of-day">
+        <option value="deep_night">Deep night</option>
+        <option value="dawn">Dawn</option>
+        <option value="morning">Morning</option>
+        <option value="midday">Midday</option>
+        <option value="afternoon">Afternoon</option>
+        <option value="sundown">Sundown</option>
+        <option value="evening">Evening</option>
+        <option value="night">Night</option>
+      </select>
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb" id="breadcrumb" aria-label="Map zoom level">
+  <button id="crumb-overview" class="crumb-btn active">Valley Overview</button>
+  <span id="crumb-current" class="crumb-current"></span>
+</nav>
+
+<main class="layout">
+
+  <section class="map-pane">
+    <div class="map-frame" id="map-frame">
+      <div id="zoom-target" class="zoom-target">
+        <img id="map-image" src="images/north_across_valley.jpg" alt="Map of Wildhollow Vale">
+        <div id="hotspot-layer" class="hotspot-layer"></div>
+        <button id="marker" class="marker" hidden aria-label="You are here">
+          <span class="marker-pin"></span>
+          <span class="marker-label" id="marker-label"></span>
+        </button>
+      </div>
+    </div>
+    <p class="map-caveat">Hotspot positions are eyeballed against the rendered views, not surveyed — expect them to sit close to, not exactly on, the feature they mark.</p>
+  </section>
+
+  <aside class="browser-pane">
+    <h2>Place Browser</h2>
+    <div id="cluster-list"></div>
+  </aside>
+
+</main>
+
+<section class="output-pane" id="output-pane">
+  <div class="output-card" id="output-card">
+    <p class="output-empty">Click anywhere on the map, or choose a place from the browser, to confirm where you are and see what's happening there right now.</p>
+  </div>
+</section>
+
+<footer class="app-footer">
+  <p>All location text is drawn from the project gazetteer. Weather, time-of-day texture, and map hotspot placement are procedurally composed for this tool; travel suggestions and a few map details are inferred rather than canon — both are labeled where they appear.</p>
+</footer>
+
+<script src="app-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

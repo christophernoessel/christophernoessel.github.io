@@ -1,0 +1,1889 @@
+// Auto-generated from wildhollow_vale.json + eyeballed map hotspot data.
+// See README in the output folder for provenance notes.
+const GAZETTEER_DATA = {
+ "calendar": {
+  "system": "Goldenhead gnome calendar, adopted farm-wide",
+  "provenance": "The farm keeps the local gnome calendar of eight 45-day months. The Crown and most human polities use a twelve-month solar calendar; contracts with Crown agents and long-haul caravans carry both reckonings.",
+  "year_length_days": 365,
+  "leap_rule": "Optional: append one day to Longnight every fourth year (366). Drift is otherwise about one day per 128 years and may be ignored.",
+  "month_count": 8,
+  "days_per_month": 45,
+  "months": [
+   {
+    "name": "Hammerfrost",
+    "season": "winter",
+    "ordinal": 1,
+    "days": 45,
+    "doy_start": 1,
+    "doy_end": 45,
+    "tone": "cold, indoor work, deep skies"
+   },
+   {
+    "name": "Thawmoon",
+    "season": "late_winter",
+    "ordinal": 2,
+    "days": 45,
+    "doy_start": 46,
+    "doy_end": 90,
+    "tone": "mud, lambs, returning light"
+   },
+   {
+    "name": "Greenwake",
+    "season": "spring",
+    "ordinal": 3,
+    "days": 45,
+    "doy_start": 91,
+    "doy_end": 135,
+    "tone": "planting, blossoms, mages arriving"
+   },
+   {
+    "name": "Suncrest",
+    "season": "late_spring",
+    "ordinal": 4,
+    "days": 45,
+    "doy_start": 136,
+    "doy_end": 180,
+    "tone": "shearing, herbs, full daylight"
+   },
+   {
+    "name": "Greatsun",
+    "season": "summer",
+    "ordinal": 5,
+    "days": 45,
+    "doy_start": 181,
+    "doy_end": 225,
+    "tone": "solstice, hay, peak bee work"
+   },
+   {
+    "name": "Hartmoon",
+    "season": "high_summer",
+    "ordinal": 6,
+    "days": 45,
+    "doy_start": 226,
+    "doy_end": 270,
+    "tone": "spider harvest, fireflies, warm nights"
+   },
+   {
+    "name": "Goldfall",
+    "season": "autumn",
+    "ordinal": 7,
+    "days": 45,
+    "doy_start": 271,
+    "doy_end": 315,
+    "tone": "apples, slaughter, harvest fairs"
+   },
+   {
+    "name": "Frostmoon",
+    "season": "late_autumn",
+    "ordinal": 8,
+    "days": 45,
+    "doy_start": 316,
+    "doy_end": 360,
+    "tone": "last harvests, departures, the Quieting"
+   }
+  ],
+  "intercalary": {
+   "name": "Longnight",
+   "days": 5,
+   "doy_start": 361,
+   "doy_end": 365,
+   "kind": "festival days, belonging to no month",
+   "note": "The year-turn at the winter solstice; the old Year-Turn rites. Five days out of ordinary time between Frostmoon's end and Hammerfrost's start. The cleric's most potent holy water is drawn at solstice midnight (mid-Longnight)."
+  },
+  "solar_anchors": {
+   "winter_solstice": "mid-Longnight (~doy 363)",
+   "spring_equinox": "Thawmoon 44 (~doy 89)",
+   "summer_solstice": "Greatsun 1 (~doy 181)",
+   "autumn_equinox": "Goldfall 2 (~doy 272)"
+  },
+  "hours": [
+   {
+    "name": "deep_night",
+    "approx_clock": "00:00-04:00",
+    "light": "starlight or moon"
+   },
+   {
+    "name": "dawn",
+    "approx_clock": "04:00-07:00",
+    "light": "first light, gray"
+   },
+   {
+    "name": "morning",
+    "approx_clock": "07:00-10:00",
+    "light": "rising sun"
+   },
+   {
+    "name": "midday",
+    "approx_clock": "10:00-14:00",
+    "light": "high sun"
+   },
+   {
+    "name": "afternoon",
+    "approx_clock": "14:00-17:00",
+    "light": "warm slanting light"
+   },
+   {
+    "name": "sundown",
+    "approx_clock": "17:00-19:00",
+    "light": "golden, then rose"
+   },
+   {
+    "name": "evening",
+    "approx_clock": "19:00-22:00",
+    "light": "lamplight, dusk"
+   },
+   {
+    "name": "night",
+    "approx_clock": "22:00-24:00",
+    "light": "lanterns, moon"
+   }
+  ]
+ },
+ "locations": [
+  {
+   "id": "curlspire_mill",
+   "name": "The Curlspire \u2014 Gnomish Snail-Shell Mill",
+   "type": "industrial",
+   "description": "A genuine four-story spiraling shell of a long-dead giant snail, banded cream and ochre, leaning slightly. A water wheel turns in the lake's north outflow at its base. Inside, the natural whorls of the shell house four sequentially cleaner mills: grain at the aperture, herbs above it, metals and minerals above that, and gems at the apex. The shell hums faintly in cold weather. The Curlspire family of gnomes lives in cottages clustered against the shell's lower curve.",
+   "staff": [
+    "Curlspire matriarch (master miller)",
+    "Curlspire journeyman",
+    "two apprentices",
+    "non-gnome teamster"
+   ],
+   "components_produced": [
+    "wheat flour",
+    "powdered carrot",
+    "powdered herbs",
+    "iron filings",
+    "powdered silver",
+    "niter",
+    "sulfur",
+    "diamond dust (50/100/300/500/1000gp)",
+    "ruby dust",
+    "powdered onyx",
+    "gem composite for Sequester",
+    "lodestone shaping"
+   ],
+   "sounds": [
+    "water wheel groaning",
+    "millstone rumble",
+    "gnomish chatter in argot",
+    "the shell's faint hum"
+   ],
+   "smells": [
+    "fresh flour",
+    "wet stone",
+    "ozone from the gem floor"
+   ]
+  },
+  {
+   "id": "the_westwork",
+   "name": "The Westwork \u2014 Western Arm of the Underspire",
+   "type": "industrial-commercial",
+   "description": "The western arm of the Goldenhead dam-city, west of the Curlspire shell. Approximately 125 meters long west-to-east (cliff abutment to shell), 65 meters thick at base tapering to 30 meters at crest, 25 meters tall above the riverbed. The clan's commercial and logistical infrastructure: warehouse, loading dock, and bulk-goods handling for the mill's output and stock. Five working levels plus the crest. The downstream face is opened by three great iron-shuttered loading doors onto a flagstoned dock yard; the doors shutter with tergite-pattern iron plates driven by gear trains tapped off the wheel, sealable in roughly ninety seconds. Inside, from bottom to top: the Dock Floor (heavy goods, teamster traffic, a teamsters' alcove with hearth and kettle); the Sluice Gallery (mill-wheel flume machinery, the Goods Tunnel mouth, bypass valves of Maela's diagnostic work); the Bag Floor (bulk milled output on pallets, destination-tagged in chalk); the Powder Floor (high-value fine goods \u2014 powdered silver, niter, sulfur, ruby dust, gem composite, diamond dust \u2014 and a Cool Room for the gem composite, plus the forge tergite annex); the Loft (light goods that want airflow: herbs, hops, rope, sailcloth, louvered vents along the downstream face); and the Crest (the watchroom and keepers' apartments). Two hoists: an external goods hoist on the downstream wall driven by a takeoff from the wheel, and an internal hand-windlassed personnel lift. The Westwork is deliberately plain-faced and massive \u2014 it does the siege-decoy job by being the obvious target, while the families, archives, and deep rings are entirely in the east arm. It is honestly commercial and not secret; the Farm's teamsters know it well. Connected to the eastern city via the Goods Tunnel (see field). Kept by a resident family of three, currently the Marrowgilts (Berren, Ondra, and Pip).",
+   "staff": [
+    "Westwork keepers \u2014 currently the Marrowgilt family of three (Berren, foreman; Ondra, clerk and weaver; Pip, fourteen, apprentice-track and frequently distracted)",
+    "rotating apprentices for daily sweeping of the Bag Floor",
+    "non-gnome teamsters (Farm-employed, visiting on cart schedules; bench-and-kettle alcove provided)"
+   ],
+   "components_produced": [
+    "(none \u2014 the Westwork stores and dispatches what the Curlspire mill produces rather than producing components itself)"
+   ],
+   "sounds": [
+    "the wheel's note, continuous low frequency felt through the masonry \u2014 louder at Dock Floor and Sluice Gallery, faint heartbeat in the Loft",
+    "click-and-ratchet of the goods hoist gearing on the downstream wall, whenever the wheel turns",
+    "soft trickle and tick of the Sluice Gallery's bypass valves and counterweighted sluice-gates",
+    "cart wheels on flagstones, snort of cart-horses, teamsters calling in Common during dock-yard working hours",
+    "thud of sacks on pallets, slate-and-chalk tick of inventory marks on the Bag Floor",
+    "creak of louvered vents and rustle of herb-bundles in the Loft",
+    "Ondra Marrowgilt's loom in the crest apartment, evenings"
+   ],
+   "smells": [
+    "grain dust and lamp oil on the Bag Floor",
+    "thyme, old rope, and (in late summer) hops in the Loft",
+    "wet stone and bronze on the Sluice Gallery",
+    "horse and flagstone in the dock yard during working hours"
+   ]
+  },
+  {
+   "id": "main_compound",
+   "name": "The Compound",
+   "type": "central",
+   "description": "A walled cluster at the geographic center of the valley. Inside the wall: the manor house, workers' cottages, kitchen garden, smithy, silversmith, alchemy lab, scriptorium, papermaking shed, bookbindery, ink-and-bottling shed, dairy, slaughterhouse and tannery, drying lofts, cidery, the receiving warehouse, and the strongroom-counting house. The main north-south road runs through it. Between the manor and the old farmhouse stands Grandmother Lind, a great old linden whose low branches have been the children's escape-routes for five generations; in high summer she floods the Keep wedge with blossom and bees. Along the Northrill, a low flowering crab \u2014 \"the Drift\" \u2014 sheds petals onto the slow water each spring, the sweethearts' walk.",
+   "staff": [
+    "proprietor",
+    "steward",
+    "clerk",
+    "master smith and apprentices",
+    "silversmith",
+    "master alchemist and assistants",
+    "apothecary",
+    "master scribe and apprentices",
+    "master papermaker",
+    "bookbinder",
+    "ink-and-bottling specialist",
+    "distiller",
+    "carpenter",
+    "cook and house staff",
+    "guards"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "hammer on anvil",
+    "voices in argument and laughter",
+    "cart wheels",
+    "in high summer, bees working the Lind against the manor glass"
+   ],
+   "smells": [
+    "woodsmoke",
+    "tannery (downwind)",
+    "bread from the kitchen",
+    "linden blossom on the Keep wedge in high summer"
+   ]
+  },
+  {
+   "id": "papermaking_shed",
+   "name": "The Papermaking Shed",
+   "type": "craft",
+   "description": "A long low building near the lake's north outflow, taking water from the same channel that turns the mill. Vats of pulped linen rags, retting tanks, drying lofts above with rows of pressed sheets curing on felt. The papermaker is a stern half-elven woman who claims her family invented the deckle edge.",
+   "staff": [
+    "master papermaker",
+    "two journeymen",
+    "rag sorter"
+   ],
+   "components_produced": [
+    "fine linen paper",
+    "vellum-grade paper",
+    "ritual paper (for scrolls)",
+    "blackened paper (Invisibility To Cameras)"
+   ],
+   "sounds": [
+    "water sloshing in vats",
+    "the rhythmic slap of the deckle"
+   ],
+   "smells": [
+    "wet linen",
+    "the slight rot of retting flax"
+   ]
+  },
+  {
+   "id": "bookbindery",
+   "name": "The Bookbindery",
+   "type": "craft",
+   "description": "Adjacent to the scriptorium, sharing a wall. Sewing frames, glue pots, presses, leather stocks. Stacks of completed spellbook blanks waiting for their wizard owners. The binder is a former war-clerk who lost two fingers and gained a great deal of patience.",
+   "staff": [
+    "master binder",
+    "apprentice",
+    "leather-finisher"
+   ],
+   "components_produced": [
+    "spellbook blanks (cheap to ornate)",
+    "scroll cases",
+    "wizard's grimoire bindings",
+    "warded ledger covers"
+   ],
+   "sounds": [
+    "hammer tapping signatures flat",
+    "the slither of thread"
+   ],
+   "smells": [
+    "leather",
+    "hide glue",
+    "beeswax"
+   ]
+  },
+  {
+   "id": "ink_and_bottling",
+   "name": "The Ink-and-Bottling Shed",
+   "type": "craft",
+   "description": "A stone building with a tile roof, sited well clear of the main compound for the same reason historical glasshouses always sat at the edge of a village: the glass-blowing kiln. The kiln runs continuously at temperatures hot enough to redden iron, with sparks at the working hole, embers up the chimney, and trays of glass that leave the kiln still glowing. The bottling side also stores linseed oil (whose oil-soaked rags are notorious for spontaneously combusting), sealing waxes, lacquers, alcohol solvents, and the small consigned stocks of sulfur and phosphorus the alchemist sends over to be portioned into bottles. The inks themselves \u2014 iron-gall, lamp-black, lead-based \u2014 are mostly water-based and not the hazard; the kiln, the oils, and the hot glass are. Stone walls, slate floor, sand buckets at every workstation, and a deliberately wide gravel apron between the shed and anything that could catch. The bottling specialist works alone except for a single deaf apprentice she trained herself; she doesn't trust anyone else with the recipes.",
+   "staff": [
+    "ink-and-bottling specialist",
+    "deaf apprentice"
+   ],
+   "components_produced": [
+    "lead-based ink (Illusory Script)",
+    "iron-gall ink",
+    "lamp-black ink",
+    "consecrated ink",
+    "potion vials",
+    "scroll tubes",
+    "alchemy bottles",
+    "ritual jars",
+    "sealing wax",
+    "lacquered scroll cases"
+   ],
+   "sounds": [
+    "the steady roar of the kiln",
+    "glass chiming as it cools",
+    "the hiss of a quench"
+   ],
+   "smells": [
+    "hot glass",
+    "linseed",
+    "kiln smoke",
+    "the faint sulfur note from the consigned stock"
+   ]
+  },
+  {
+   "id": "scriptorium",
+   "name": "The Scriptorium",
+   "type": "craft",
+   "description": "Long room with high north-facing windows for steady light. Sloped writing desks along both walls, a shelf of pigments and powdered metals at the far end, vellum-stretching frames in the back. The master scribe is meticulous and intolerant of distraction.",
+   "staff": [
+    "master scribe",
+    "three apprentice scribes"
+   ],
+   "components_produced": [
+    "scroll stock",
+    "ritual parchment",
+    "warded scrolls",
+    "vellum sheets",
+    "calligraphic services for visiting mages"
+   ],
+   "sounds": [
+    "the scratch of quills",
+    "low chanting (some scrolls require it)"
+   ],
+   "smells": [
+    "ink",
+    "parchment",
+    "candle wax"
+   ]
+  },
+  {
+   "id": "alchemy_lab",
+   "name": "The Alchemy Laboratory",
+   "type": "industrial",
+   "description": "Stone-built, fume-vented, set apart from the main buildings because of the fire risk. Sulfur, phosphorus, and various distilled spirits are produced or stored here. The master alchemist is a tiefling whose horns have been blunted by an old accident she will not discuss.",
+   "staff": [
+    "master alchemist",
+    "two assistants"
+   ],
+   "components_produced": [
+    "alchemist's supplies",
+    "powdered iron",
+    "phosphorus",
+    "gum arabic",
+    "ointments",
+    "oils",
+    "unguents",
+    "preserved tentacles and other apothecary stock"
+   ],
+   "sounds": [
+    "the hiss of an alembic",
+    "occasional small explosions, calmly absorbed"
+   ],
+   "smells": [
+    "sulfur",
+    "vinegar",
+    "something herbal and pungent"
+   ]
+  },
+  {
+   "id": "smithy",
+   "name": "The Smithy",
+   "type": "craft",
+   "description": "Open-faced forge with a tile roof. Coal in the corner, tongs racked along the wall, work-table heaped with copper wire, lodestone blanks, iron rods, and the small-silver work the silversmith hasn't claimed yet. The master smith sings while he works; the apprentices have learned to sing along.",
+   "staff": [
+    "master smith",
+    "two apprentices"
+   ],
+   "components_produced": [
+    "copper wire (Message, Sending)",
+    "iron rods (Hold Person)",
+    "lodestones (Mending)",
+    "iron filings",
+    "tiny bells (Alarm)",
+    "brass braziers (Find Familiar)"
+   ],
+   "sounds": [
+    "hammer on anvil",
+    "bellows wheezing",
+    "the smith singing"
+   ],
+   "smells": [
+    "coal smoke",
+    "hot iron",
+    "quenching steam"
+   ]
+  },
+  {
+   "id": "silversmith",
+   "name": "The Silversmith's Shop",
+   "type": "craft",
+   "description": "Smaller than the smithy, kept locked when unstaffed, set against the strongroom's outer wall. Fine work bench, draw-plate for silver wire, jeweler's loupe, mirrors-in-progress on green felt. Arallee the silversmith is a quiet elf who has been on the farm since the late Foolish Decades.",
+   "staff": [
+    "silversmith"
+   ],
+   "components_produced": [
+    "silver wire (Alarm)",
+    "small silver mirror (Sanctuary)",
+    "tiny silver cage (Soul Cage)",
+    "silver pins (Chain Lightning)",
+    "small silver rod (Guards and Wards)"
+   ],
+   "sounds": [
+    "the tap of a small hammer",
+    "rasping files"
+   ],
+   "smells": [
+    "the cool metallic note of silver, faint pickle from the cleaning solution"
+   ]
+  },
+  {
+   "id": "strongroom",
+   "name": "The Strongroom and Counting House",
+   "type": "secured",
+   "description": "Stone walls four feet thick, iron-bound door, two locks (one mechanical, one warded by a contracted abjurer). Where finished gem dust, raw stones from adventurer contracts, finished spellbooks awaiting pickup, and the farm's coin live. A guard is stationed here at all hours.",
+   "staff": [
+    "clerk-bookkeeper",
+    "rotating guards"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "the soft ticking of the clerk's pendulum scale"
+   ],
+   "smells": [
+    "candle wax, old paper, the metallic note of coin"
+   ]
+  },
+  {
+   "id": "chapel_and_cemetery",
+   "name": "The Chapel and Consecrated Cemetery",
+   "type": "sacred",
+   "description": "Small fieldstone chapel with a slate spire. Cemetery on the east side, ringed by a low wall, perhaps fifty graves \u2014 the farm's dead going back generations and a contract with the village for funerary services. The cleric is a gentle older man whose theology is broad-minded.",
+   "staff": [
+    "resident cleric",
+    "sexton"
+   ],
+   "components_produced": [
+    "holy water (sprinkling, vial, font)",
+    "consecrated grave dirt (Gentle Repose, Feign Death)",
+    "holy symbols",
+    "blessings on inks and components"
+   ],
+   "sounds": [
+    "wind in the spire",
+    "the cleric's low voice in prayer"
+   ],
+   "smells": [
+    "incense",
+    "stone, lichen, turned earth"
+   ]
+  },
+  {
+   "id": "inn_wash_house",
+   "name": "The Inn Wash-house",
+   "type": "service",
+   "description": "A small stone wash-house on the east bank of the Alderrun by the Goods Bridge landing, upstream of the foul-trade outfalls (tannery, slaughterhouse, paper-retting) so its intake water is clean. Coppers and a hearth-chimney inside; a row of tubs along the bank; a carved scour-stone on a plinth that lets the laundress offer same-hour magical cleaning. Inn linen, guest bedding, and the paid visitor laundry are done here and carted the short distance to the inn, where Subinnia bills it with the room. Laundry is also one of Toller's quiet observation points.",
+   "staff": [
+    "Orla Linney (head laundress, year-round)",
+    "one steady helper",
+    "casual seasonal hands (Suncrest fill, Highmoon Feast)"
+   ],
+   "components_produced": [
+    "(none \u2014 a service, not a component source)"
+   ],
+   "sounds": [
+    "the slosh and wring of tubs",
+    "a paddle thumping wet cloth",
+    "Orla talking, always"
+   ],
+   "smells": [
+    "lye soap and hot water",
+    "woodsmoke from the copper hearth",
+    "wet linen"
+   ]
+  },
+  {
+   "id": "manor_wash",
+   "name": "The Manor Scullery Wash",
+   "type": "service",
+   "description": "A lean-to off the manor scullery on the Keep wedge, drawing the manor's own clean well-water beside the kitchen garden. The household's own linen and the proprietor's finer things are washed here in-house by house staff as a wash-day duty.",
+   "staff": [
+    "head laundress (Orla Linney) and wash-house helpers",
+    "house staff (wash-day rotation; no dedicated post)"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "quiet tub-work",
+    "the kitchen-garden gate"
+   ],
+   "smells": [
+    "soap",
+    "lavender from the garden",
+    "clean linen drying"
+   ]
+  },
+  {
+   "id": "cottage_wash",
+   "name": "The Cottage Wash-place",
+   "type": "service",
+   "description": "A humble roofed wash-stand at the river's edge by the workers' cottages, drawing clean Alderrun water. Self-service, worked on a household rota, no charge and no dedicated labor. The communal drying green lies on open ground beside the cottages. This is where Orla Linney ran the cottagers' wash before the inn put her on a wage.",
+   "staff": [
+    "cottage households (self-service rota)"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "neighbors washing and talking",
+    "children underfoot",
+    "wet sheets snapping on the line"
+   ],
+   "smells": [
+    "soap and river-water",
+    "woodsmoke",
+    "grass on the drying green"
+   ]
+  },
+  {
+   "id": "the_clearspan",
+   "name": "The Clearspan (Purifying Arch)",
+   "type": "structure",
+   "description": "A stone arch spanning the Alderrun downstream of the foul-trade outfalls and before the bramble at the valley gate. A standing purifying field beneath it cleans the water that passes \u2014 protecting the cropland irrigation reaches, the reed (duck) pond, and the outflow that leaves the valley. Homebrew enchantment modeled on Purify Food and Drink, extended to a continuous flow the way the gatehouse Bell of Closing extends Alarm. The field is renewed each day by a ritual casting \u2014 Father Tobin's daily office at the water (Purify Food and Drink is a cleric ritual, so it costs him no slot). If the Clearspan ever fails, the foul load resumes within a day. Alternative name: the Lavegate.",
+   "staff": [
+    "Father Tobin (daily ritual recharge)",
+    "contracted abjurer (permanent enchantment, generational refresh)"
+   ],
+   "components_produced": [
+    "clean downstream water (the reed pond and the valley outflow depend on it)"
+   ],
+   "sounds": [
+    "river running clear under stone",
+    "Tobin's low morning blessing"
+   ],
+   "smells": [
+    "clean water",
+    "wet stone"
+   ]
+  },
+  {
+   "id": "bat_caves",
+   "name": "The Bat Caves",
+   "type": "wild",
+   "description": "Three cave mouths in the limestone bluffs at the end of a short tributary valley's southeast end. The colony is enormous \u2014 many tens of thousands of bats. Guano floors are thick; the bat-keeper has built a system of slatted trays to collect it cleanly. The caves themselves go deeper than has been mapped. Where the bedrock springs issue from the bluffs, ferns crowd the wet limestone \u2014 hart's-tongue in the crevices, a maidenhair curtain behind the stronger spring-falls (a young-naiad haunt). On the dry headwall ledges, cushions of white cliff-foil bloom in spring, and wild yews cling crooked to the pale rock, too sheer to harvest, left to the kestrels.",
+   "staff": [
+    "bat-keeper",
+    "two assistants"
+   ],
+   "components_produced": [
+    "bat guano (Fireball, Delayed Blast Fireball)",
+    "bat fur (Darkness, Lightning Bolt, Arcane Eye)"
+   ],
+   "sounds": [
+    "the rustling chitter of bats (sleeping or waking depending on hour)",
+    "dripping water"
+   ],
+   "smells": [
+    "ammonia, deep and old"
+   ]
+  },
+  {
+   "id": "spider_wood",
+   "name": "The Spider Wood",
+   "type": "wild",
+   "description": "Sixty acres of old-growth forest in the northwest corner, walled off from the rest of the valley by a stone-and-thorn perimeter. Webs stretch between trunks; some are gossamer, some are the thickness of climbing rope. The insectarist enters once a week with the bramble-crew's leather and a great deal of preparation. The wood's sweetish wrongness has a source: the sweetwhite, a leafless waxy white flower that lives off the wood's fungus and smells of sugar and rot. The spiders web between its stalks on purpose \u2014 in a wood with almost no birdsong, the flower is the lure and the web the trap.",
+   "staff": [
+    "insectarist",
+    "two assistants when entering"
+   ],
+   "components_produced": [
+    "spiderweb (Web)",
+    "live spiders (Spider Climb)",
+    "preserved egg sacs (apothecary stock)"
+   ],
+   "sounds": [
+    "wind in canopy, almost no birdsong, the very faint sound of small things skittering"
+   ],
+   "smells": [
+    "leaf mold, something sweet and not quite right"
+   ]
+  },
+  {
+   "id": "mistletoe_grove",
+   "name": "The Mistletoe Host-Grove",
+   "type": "managed_wild",
+   "description": "Twenty-five acres of carefully tended host trees \u2014 oak, hawthorn, apple \u2014 each bearing parasitic clumps of mistletoe in its upper branches. The grove is quarantined from the main orchard. The head gardener works it personally; the trees are pruned and the mistletoe trained into the most useful clumps over years.",
+   "staff": [
+    "head gardener"
+   ],
+   "components_produced": [
+    "mistletoe (Goodberry, Shillelagh, Pass Without Trace, Druid Grove)"
+   ],
+   "sounds": [
+    "birdsong, surprisingly heavy, because the mistletoe berries feed thrushes year-round"
+   ],
+   "smells": [
+    "oak bark, the sharp green note of mistletoe sap"
+   ]
+  },
+  {
+   "id": "apiary",
+   "name": "The Apiary Meadow",
+   "type": "managed",
+   "description": "Ten acres of wildflower meadow with painted hive boxes and traditional skeps in two long rows. The beekeeper is an enormous quiet man who never wears a veil and is never stung.",
+   "staff": [
+    "beekeeper"
+   ],
+   "components_produced": [
+    "honey",
+    "honeycomb (Magic Mouth, Suggestion)",
+    "beeswax",
+    "early-flow honey (specialty)"
+   ],
+   "sounds": [
+    "the layered drone of bees, varying with the hour"
+   ],
+   "smells": [
+    "clover, wildflower, warm wax"
+   ]
+  },
+  {
+   "id": "lake_and_pond",
+   "name": "The Spring-Fed Lake and Reed Pond",
+   "type": "natural",
+   "description": "Eighty-acre lake (the gnomes and, increasingly, the Farm call it Aldermere), cold and clear and deeper than it once was \u2014 the dam raised it over a generation as the price of caging the deep thing beneath the lakebed, stilling a once-livelier water. Fed by bedrock springs from the bluffs and draining north through the mill and the Underspire dam, which passes fish both ways by design (a low-impact screw down, a ladder up). To the east, a smaller pond ringed with reeds, full of waterfowl. The Farm fishes the lake from its own small boats and swims there in Greatsun; reed-cutting is at the pond. Aldermere is the home of the naiads (see named_characters: the_naiads) \u2014 freshwater fey, the valley's oldest residents, bound to the dam by an old and mixed bargain (gnome ambition and naiad greed under a true necessity) that left their queen more powerful and less fully alive. They are easy with the gnomes and warily watchful of humans. There is no ban: humans may work and play on the water so long as they treat the lake and its life with respect, the same standard held to any gnome, while the queen has set the young naiads to mind non-gnomes more closely (one of them makes a sport of needling human boaters for a laugh). Once a year, at the Mere-Light, the clan floods the dam's upstream windows with lamplight, lovers row out, and the young naiads will tow a boat for a trinket; the windows are otherwise kept dark. Icehouse crews cut and jetty the lake ice in winter. On the stilled shallows, white water-lilies spread \u2014 a thing the dam's raising made possible; the young needling naiad works the pads as cover. On the hill off the southwest bank, a fluffy moss \u2014 emberfelt \u2014 runs gold in summer and kindling-orange in fall, the icehouse crew's frost-clock.",
+   "staff": [],
+   "components_produced": [
+    "lake water (Animal Friendship, Create Water, Tidal Wave)",
+    "ice (Icingdeath's Frost \u2014 cut in winter)",
+    "reeds and short straws (Water Breathing)",
+    "drops of water (many spells)",
+    "waterfowl feathers"
+   ],
+   "sounds": [
+    "water lapping, ducks, a heron occasionally",
+    "after dark, now and then, the long keen of flowing, liquid song or voices off the water"
+   ],
+   "smells": [
+    "clean water, reed beds, mud"
+   ]
+  },
+  {
+   "id": "orchard",
+   "name": "The Mixed Orchard",
+   "type": "managed",
+   "description": "Ninety acres of fruit and nut trees: apple, oak (for galls and acorns), yew, sumac, cork oak, pine (for tar), mulberry (for the silkworms). Rows wide enough for a cart between them. The orchard team's day depends entirely on what's ripening.",
+   "staff": [
+    "orchard master",
+    "rotating field hands"
+   ],
+   "components_produced": [
+    "apple (cidery, pie crust)",
+    "oak galls (ink)",
+    "acorns",
+    "yew leaf (Detect Poison)",
+    "sumac (Flame Blade)",
+    "cork",
+    "pine tar"
+   ],
+   "sounds": [
+    "wind in leaves, songbirds, ladders against trunks in season"
+   ],
+   "smells": [
+    "whatever is ripening, plus the underlying note of crushed grass"
+   ]
+  },
+  {
+   "id": "cropland",
+   "name": "The Tilled Cropland",
+   "type": "managed",
+   "description": "Seventy acres in long furrowed strips: grain, sesame, legumes, sugar beet, peppers, carrots, rhubarb. Plowed in spring, harvested in successive waves through autumn. The least magical zone on the farm and not infrequently the busiest.",
+   "staff": [
+    "field hands (8\u201312)"
+   ],
+   "components_produced": [
+    "wheat (flour, straw)",
+    "sesame (Passwall)",
+    "legume seed (Gust of Wind)",
+    "carrot (Darkvision)",
+    "hot peppers (Dragon's Breath)",
+    "sugar"
+   ],
+   "sounds": [
+    "nothing dramatic \u2014 wind, sometimes singing"
+   ],
+   "smells": [
+    "turned earth, growing things, hot dust in summer"
+   ]
+  },
+  {
+   "id": "pasture",
+   "name": "The Pasture",
+   "type": "managed",
+   "description": "180 acres of grazing land north of the compound, divided into rotating paddocks by hedge and fence. Cattle in the larger paddocks, sheep in the smaller. The herdsman's small cottage at the far north fence has a view of the road and the gate.",
+   "staff": [
+    "herdsman",
+    "shepherd",
+    "cowhands"
+   ],
+   "components_produced": [
+    "beef, hide, tallow, bull hair (Tenser's Transformation)",
+    "fleece (Minor Illusion, Major Image, Phantasmal Force)",
+    "wool",
+    "milk, butter (Grease)"
+   ],
+   "sounds": [
+    "lowing, bleating, dogs working"
+   ],
+   "smells": [
+    "livestock, fresh grass, occasional hay"
+   ]
+  },
+  {
+   "id": "insectary",
+   "name": "The Insectary",
+   "type": "specialized",
+   "description": "Three glazed sheds with carefully controlled humidity and temperature, set well clear of the apiary. One shed for crickets and grasshoppers, one for fleas, one for fireflies (kept in darkness). The insectarist is a gnome \u2014 not a Curlspire \u2014 with a perpetually pleased expression and a habit of muttering to her insects.",
+   "staff": [
+    "insectarist"
+   ],
+   "components_produced": [
+    "crickets (Sleep)",
+    "grasshopper hind legs (Jump)",
+    "fleas (Infestation)",
+    "fireflies (Light, Fire Shield)",
+    "glowworms (Dancing Lights)"
+   ],
+   "sounds": [
+    "a layered chirring that varies by shed and hour"
+   ],
+   "smells": [
+    "the close green smell of insectary"
+   ]
+  },
+  {
+   "id": "inn",
+   "name": "The Bramblestop Inn",
+   "type": "hospitality",
+   "description": "Two-story timber-and-plaster inn just inside the north gate, built for the farm's adventurer-contractors and visiting mages who don't merit one of the residence huts. Common room downstairs, a dozen rooms above, a private parlor for negotiations. The innkeeper is a former adventurer with a notable scar and excellent cellar. Pots crowd the sills and the threshold \u2014 bright bloom for welcome, and a pot of lemon balm by the door, so an arriving contractor's first touch of the farm is a crushed leaf. A coppiced bank of alders along the inn-side of the Alderrun screens the downstream foul-trades from view (and feeds the smithy's charcoal on rotation).",
+   "staff": [
+    "innkeeper",
+    "cook",
+    "serving staff",
+    "stableboy"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "the common room \u2014 voices, fire, occasional song",
+    "wind in the eaves at night"
+   ],
+   "smells": [
+    "beer, roast meat, woodsmoke, the rosemary the innkeeper hangs in the rafters",
+    "lemon balm at the door; river-alder"
+   ]
+  },
+  {
+   "id": "stable",
+   "name": "The Stable",
+   "type": "hospitality",
+   "description": "Long stone-walled stable beside the inn, twenty stalls plus four oversized stalls for unusual mounts. A separate fenced yard for the truly strange. The stablemaster speaks four languages because adventurers' steeds rarely speak hers.",
+   "staff": [
+    "stablemaster",
+    "two grooms"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "horses shifting, hay being moved, the occasional unidentifiable noise from the oversized stalls"
+   ],
+   "smells": [
+    "horse, hay, leather, oats"
+   ]
+  },
+  {
+   "id": "mage_huts",
+   "name": "The Visiting-Mage Huts",
+   "type": "hospitality",
+   "description": "Six small stone huts arranged in a half-circle on a low rise east of the compound, each with a single room, a hearth, a desk, a narrow bed, and a small fenced garden. Reserved for wizards working on new spells who need extended residence. Each hut has been warded, repaired, and warded again over the years; the soot patterns on the hearths are not ordinary soot.",
+   "staff": [
+    "caretaker (visits daily when occupied)"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "whatever the mage in residence is doing, often muffled"
+   ],
+   "smells": [
+    "varies wildly: ozone, sulfur, lavender, something burned, something sweet"
+   ]
+  },
+  {
+   "id": "gatehouse",
+   "name": "The North Gatehouse",
+   "type": "secured",
+   "description": "Stone gatehouse straddling the road where it enters the valley. Two guards on duty, a portcullis that has not been dropped in a decade, a small office where arriving contractors are logged in. Beyond the gate, the road runs north to the village and onward to the city.",
+   "staff": [
+    "two guards on rotation"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "road traffic during day, crickets at night"
+   ],
+   "smells": [
+    "stone, road dust"
+   ]
+  },
+  {
+   "id": "yrels_grove",
+   "name": "Yrel's Grove",
+   "type": "wild",
+   "description": "On the far side of the valley from the bat caves, in the deepest unimproved forest, lies a grove that does not appear on any farm map and is not, in any meaningful sense, part of the farm. The grove is Yrel of Wildvalley's home and has been for over two centuries. A small stone cottage sits within it, half-overgrown and apparently unused \u2014 Yrel sleeps in it when she remembers to. The grove itself is the real residence: old trees with unusual bark patterns, a clearing that catches morning light at angles that don't quite match the sun's position, and a forest elemental that has been bound here for two hundred and fifty years and now possesses something like personality. Visitors are not welcome unless invited. The current proprietor visits perhaps three times a year, by long-standing protocol, with small gifts in the tradition of the original bag of berries. The grove's protective coverage extends, by Yrel's standing decision, to the farm proper \u2014 but the elemental's responsiveness is a function of Yrel's continued tolerance, which is a function of the relationship, which is a function of the gifts and the visits. In the clearing that catches morning light at the wrong angle, a low blue flower opens toward a dawn that isn't where the real dawn is. Yrel doesn't explain it; the elemental doesn't either.",
+   "staff": [
+    "Yrel of Wildvalley (resident)",
+    "the forest elemental (in continuous attendance)"
+   ],
+   "components_produced": [
+    "nothing harvested for sale; Yrel occasionally gifts the apothecary unusual material she has collected, which is treated with care"
+   ],
+   "sounds": [
+    "wind through old trees",
+    "the elemental's footfalls when it moves, which sound like nothing else",
+    "Yrel's voice, sometimes lecturing to no one"
+   ],
+   "smells": [
+    "leaf mold, old bark, ozone when the wild magic is restless"
+   ]
+  },
+  {
+   "id": "snail_farm",
+   "name": "The Snail Farm",
+   "type": "experimental",
+   "description": "An experimental project run by one of the current proprietor's children \u2014 let's call them, for now, the Snail-Tender \u2014 set in a clearing in the wooded buffer between the orchard and the spider wood. The Snail-Tender has constructed enclosures of damp rich soil, careful microclimates, and feeding stations stocked with greens that are themselves grown in saturating proximity to wild-magic conditions. The goal is to grow new magical snails by replicating the conditions that produced the original \u2014 egg from common stock, soil from the valley, exposure to the storm at the right moments, patience. So far, the snails are growing. They are larger than they should be. They are not yet doing anything else. The Snail-Tender visits daily and keeps detailed journals. The Goldenheads have not commented publicly on the project. Yrel has visited once, looked, and left without speaking. The proprietor is supportive but has flagged the project as 'something to revisit if it starts producing results we cannot account for.'",
+   "staff": [
+    "the Snail-Tender (one of the proprietor's children)"
+   ],
+   "components_produced": [
+    "nothing yet; the project is experimental"
+   ],
+   "sounds": [
+    "very little \u2014 snails are quiet; perhaps the Snail-Tender humming, perhaps the very faint sound of large soft bodies moving in damp soil"
+   ],
+   "smells": [
+    "damp earth, mulch, something faintly mineral from the storm-exposed greens"
+   ]
+  },
+  {
+   "id": "downriver_village",
+   "name": "The Northrill Village (unlisted)",
+   "type": "inferred",
+   "description": "A trade hamlet strung along the Northrill where it's crossed by the eastern road \u2014 not a location record in the source gazetteer, included here only because the rendered view shows it. Treat everything about it as scene-setting rather than canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [
+    "river current",
+    "cart traffic on the crossing",
+    "ordinary village noise"
+   ],
+   "smells": [
+    "woodsmoke",
+    "river damp"
+   ]
+  }
+ ],
+ "dailyRhythms": {
+  "curlspire_mill": {
+   "deep_night": "Shell silent. The water wheel turns on idling. A single lantern in the gem-floor stair where a guard sits the watch.",
+   "dawn": "The Curlspire matriarch is already up, sniffing the wind for moisture (it affects the grain milling). The teamster begins loading the previous day's flour onto a cart.",
+   "morning": "Grain floor at full work. Stones rumble. Sacks of wheat going up, sacks of flour coming down on a gnomish lift system involving counterweights and a great deal of cheerful shouting.",
+   "midday": "Brief lull as the gnomes break for second-breakfast (their first was at dawn). Apprentices oil the bearings.",
+   "afternoon": "Herb floor running \u2014 finer work, quieter. Grain floor down to one stone. The gem floor opens on order days only.",
+   "sundown": "Mill winds down. The journeyman closes the sluice. The shell catches the last sun on its outer curve and looks, briefly, alive.",
+   "evening": "Gnomes home to their cottages. The apprentice on watch checks every floor for live embers and stray dust.",
+   "night": "Quiet. The watch-apprentice reads by lantern in the office cubby."
+  },
+  "main_compound": {
+   "deep_night": "Most buildings dark. The strongroom guard makes his rounds. A single window lit in the alchemy lab \u2014 distillations don't sleep.",
+   "dawn": "Cocks crow. Cook lights the kitchen fires. The smith stokes his forge.",
+   "morning": "Compound at full noise. Carts in and out. The clerk takes deliveries; the steward holds the day's first audience with crew leaders. On week days the school band sets out south up the cart road, eldest at the head \u2014 on lucky mornings folded in with a wagon bound the same way.",
+   "midday": "Workers take their meal in shifts at the long tables under the eaves of the manor's south porch.",
+   "afternoon": "Crafts at peak. Smithy, scriptorium, papermaking, alchemy all running. The proprietor walks the yard. The proprietor walks the yard. On school days the school band straggles back down the road, Eddric's shepherd dog herding them home before she turns for the bluff.",
+   "sundown": "Crews returning from the fields and the wood. The gate count is taken.",
+   "evening": "Lamps lit. Workers' cottages lively. The manor parlor sees its evening business \u2014 contracts, letters.",
+   "night": "Compound mostly asleep. Guards on rotation. The cleric sometimes walks the wall, praying."
+  },
+  "inn_wash_house": {
+   "deep_night": "Dark. Tubs covered. The scour-stone faintly lit on its plinth.",
+   "dawn": "Orla in first, lighting the copper. The scour-stone recharges with the sun.",
+   "morning": "Full wash on. Guest kit in, valley news out \u2014 Orla's busiest talking hours.",
+   "midday": "Lines hung on the green if the sky allows; airing-racks under the eaves if not.",
+   "afternoon": "Premium same-hour work for parties riding out; the scour-stone earns its keep.",
+   "sundown": "Last loads wrung. Folded linen carted to the inn.",
+   "evening": "Closed. Orla home across the river to Linney Cottage.",
+   "night": "Quiet. Damp stone and cold coppers."
+  },
+  "manor_wash": {
+   "deep_night": "Dark.",
+   "dawn": "House staff draw the first well-water.",
+   "morning": "Household linen on wash-day; otherwise quiet.",
+   "midday": "Drying on the manor green by the kitchen garden.",
+   "afternoon": "Pressing and folding indoors.",
+   "sundown": "Linen put away.",
+   "evening": "Closed.",
+   "night": "Closed."
+  },
+  "cottage_wash": {
+   "deep_night": "Empty.",
+   "dawn": "First cottager down to the stand.",
+   "morning": "Rota wash \u2014 whoever's day it is, and whoever stops to talk.",
+   "midday": "Sheets on the cottage green.",
+   "afternoon": "Children sent to bring the dry wash in.",
+   "sundown": "Last lines cleared before the damp comes up.",
+   "evening": "Empty. Lines bare.",
+   "night": "Empty."
+  },
+  "the_clearspan": {
+   "deep_night": "Field steady, river clear beneath.",
+   "dawn": "Tobin walks down for the morning recharge \u2014 a few quiet minutes at the water.",
+   "morning": "Clear flow downstream toward the cropland and the pond.",
+   "midday": "Unremarkable, which is the point.",
+   "afternoon": "Steady.",
+   "sundown": "Steady.",
+   "evening": "Steady.",
+   "night": "Steady \u2014 until the morning it isn't, which is a story."
+  },
+  "papermaking_shed": {
+   "deep_night": "Vats covered. The retting tanks make a low gurgling noise that the apprentices find unsettling.",
+   "dawn": "The papermaker arrives before the journeymen. She inspects the previous day's drying sheets.",
+   "morning": "Pulping. The water wheel drives the beating-engine. Rags being sorted in the back.",
+   "midday": "The deckle work \u2014 the rhythmic dipping that makes the actual sheets. This is the part visitors usually want to watch.",
+   "afternoon": "Pressing the day's sheets between felts. Heavy lifting; everyone helps.",
+   "sundown": "Lifting the cured sheets to the drying loft. The papermaker checks each one personally.",
+   "evening": "Doors closed. The papermaker sometimes returns to inspect a particular batch.",
+   "night": "Empty but for the gurgling tanks."
+  },
+  "bookbindery": {
+   "deep_night": "Dark. The glue pots covered.",
+   "dawn": "Binder arrives, lights the brazier to warm the glue.",
+   "morning": "Sewing signatures on the frame. Quiet, focused work.",
+   "midday": "Leather-finisher in. He works on covers \u2014 tooling, gilding, occasionally warding under contract.",
+   "afternoon": "Pressing, trimming, the hammering that flattens the spine.",
+   "sundown": "Cleanup. The day's finished books go to the strongroom on a small handcart.",
+   "evening": "Closed.",
+   "night": "Closed."
+  },
+  "ink_and_bottling": {
+   "deep_night": "Kiln banked. The specialist is sometimes here in deep night; certain inks are brewed in darkness on purpose.",
+   "dawn": "Kiln stoked. First glass blowing of the day.",
+   "morning": "Bottle production \u2014 vials, alembics, scroll tubes, jars. The apprentice tends the kiln.",
+   "midday": "Ink compounding. The specialist and apprentice work in near-silence \u2014 she signs instructions and he reads lips.",
+   "afternoon": "More glass. More ink. Periodically, a small explosion that the alchemist next door no longer reacts to.",
+   "sundown": "Day's output decanted, labeled, racked.",
+   "evening": "Specialist sometimes here, brewing a contract ink that requires evening work.",
+   "night": "Sometimes lit, sometimes not. Best not to interrupt if it is."
+  },
+  "scriptorium": {
+   "deep_night": "Dark.",
+   "dawn": "Master scribe arrives first. Lights the lamps for the apprentices who arrive shortly after.",
+   "morning": "Steady scratch of quills. The room's high windows are at their best.",
+   "midday": "Apprentices break for meal; the master scribe takes his at the desk, eating one-handed while writing with the other.",
+   "afternoon": "The scroll-writing for active orders. Some scrolls require chanted accompaniment; one of the apprentices is being trained for this.",
+   "sundown": "Quills cleaned, inks corked. The room smells of melted candle wax.",
+   "evening": "Closed unless a rush order is in.",
+   "night": "Closed."
+  },
+  "alchemy_lab": {
+   "deep_night": "A distillation always running. The master alchemist may or may not be present; she sleeps in odd patterns.",
+   "dawn": "Assistants arrive, check the overnight runs.",
+   "morning": "New batch work. The lab smells stronger than usual.",
+   "midday": "The master alchemist reviews each station's progress.",
+   "afternoon": "Consultations \u2014 the apothecary often comes in to discuss component questions.",
+   "sundown": "Banking the fires for the long overnight runs.",
+   "evening": "One assistant on watch. The alchemist sometimes returns.",
+   "night": "Quiet hiss of the alembic. A single lit window."
+  },
+  "smithy": {
+   "deep_night": "Cold and dark.",
+   "dawn": "Smith stokes the forge. The first ringing of the hammer is the farm's unofficial wake-up.",
+   "morning": "Heavy work. Rod-iron, lodestone shaping, copper-wire drawing.",
+   "midday": "Smith eats at the forge, never leaving the heat.",
+   "afternoon": "Apprentices' practice work; the smith corrects their pieces.",
+   "sundown": "Quench buckets emptied. Forge banked.",
+   "evening": "Closed.",
+   "night": "Closed. Coals still warm into deep night."
+  },
+  "silversmith": {
+   "deep_night": "Locked.",
+   "dawn": "Arallee arrives, unlocks both their door and the strongroom-side hatch.",
+   "morning": "Fine work. They prefer the morning light.",
+   "midday": "Brief stop. They eats almost nothing at midday \u2014 old habit.",
+   "afternoon": "Larger pieces \u2014 mirrors, the occasional reliquary commission.",
+   "sundown": "Locks up. Tools accounted for, silver weighed back in.",
+   "evening": "Closed.",
+   "night": "Closed and warded."
+  },
+  "strongroom": {
+   "deep_night": "Guard at the door. Clerk gone home. Inside: silence and the very faint hum of the abjurer's ward.",
+   "dawn": "Guard change. Clerk arrives, opens the ledger.",
+   "morning": "Receiving \u2014 adventurer deliveries, mill output, smithy and silversmith work.",
+   "midday": "Clerk closes for an hour. A guard remains.",
+   "afternoon": "Disbursement \u2014 orders going out, customers coming in, gem dust weighed to the grain.",
+   "sundown": "Day's tally. Clerk reconciles with the steward.",
+   "evening": "Closed and locked.",
+   "night": "Guard at the door."
+  },
+  "chapel_and_cemetery": {
+   "deep_night": "Chapel dim, one votive lit. The sexton sometimes walks the cemetery at his own discretion.",
+   "dawn": "The cleric's morning office, sung to the empty chapel.",
+   "morning": "Quiet hours. Visitors welcome \u2014 workers come for blessings before dangerous work.",
+   "midday": "The cleric takes his meal in the chapel garden.",
+   "afternoon": "Funerary or contract work depending on the day. Holy water decanted. Components blessed.",
+   "sundown": "Evening office. Sexton lights the votives.",
+   "evening": "Open until the cleric retires. Candles burn until they are out.",
+   "night": "Locked, but the sanctuary lamp remains lit."
+  },
+  "bat_caves": {
+   "deep_night": "Most bats have returned to roost. Stragglers darting in. The chitter is enormous.",
+   "dawn": "Last bats home. The colony settles into its sleeping mass \u2014 a noise like a held breath that goes on for hours.",
+   "morning": "Bat-keeper enters with assistants. Guano collection from the slatted trays. The colony does not stir.",
+   "midday": "Caves quiet. The keeper is usually outside, drying and sacking the harvest.",
+   "afternoon": "More collection. Sometimes mapping the deeper caves \u2014 slow, ongoing work.",
+   "sundown": "The colony begins to wake. A rising hiss. The keeper and assistants leave well before the emergence.",
+   "evening": "Emergence. A column of bats pours from the cave mouths against the sundown sky for nearly an hour. This is one of the valley's sights.",
+   "night": "Bats hunting over the lake and orchards. Caves nearly empty, save for nursing mothers and pups."
+  },
+  "spider_wood": {
+   "deep_night": "The wood is most active. Best avoided.",
+   "dawn": "Mist among the trunks. Webs visibly beaded with dew.",
+   "morning": "The insectarist's preferred entry hour, weekly. Webs are most visible.",
+   "midday": "Wood quiet, almost peaceful \u2014 but the silence is deceptive.",
+   "afternoon": "Light filters down green. Some spiders move from upper webs to lower.",
+   "sundown": "Activity rising. Outsiders should not be in the wood.",
+   "evening": "The wood is hunting. Stay clear.",
+   "night": "Stay clear."
+  },
+  "mistletoe_grove": {
+   "deep_night": "Quiet, but on certain nights \u2014 particularly the Hammerfrost full moon \u2014 the grove is the busiest place on the farm.",
+   "dawn": "Birdsong, heavier than elsewhere because of the mistletoe berries.",
+   "morning": "Head gardener at work, training new growth.",
+   "midday": "Quiet. The grove is restful.",
+   "afternoon": "Pruning, harvesting, careful tending.",
+   "sundown": "Gardener leaves the grove.",
+   "evening": "Empty.",
+   "night": "Empty save the thrushes."
+  },
+  "apiary": {
+   "deep_night": "Hives silent.",
+   "dawn": "First foragers emerging.",
+   "morning": "Beekeeper works the hives during the cool of morning when the bees are calmer.",
+   "midday": "Maximum activity in the hives, minimum staff in the meadow.",
+   "afternoon": "Harvest of frames, if it's a harvest day.",
+   "sundown": "Foragers returning. The drone of the meadow at its loudest, then easing.",
+   "evening": "Hives quieting. Beekeeper takes a chair and a clay pipe and watches them settle.",
+   "night": "Silent."
+  },
+  "lake_and_pond": {
+   "deep_night": "Mist on the water. Loons sometimes calling.",
+   "dawn": "Mist lifting. The lake is at its most beautiful and least practical.",
+   "morning": "Fishing crew on the lake (the Farm has its own small boats), a naiad usually watching from somewhere unseen. Reed gathering at the pond.",
+   "midday": "Workers swim in Greatsun. Fowler at the pond.",
+   "afternoon": "Cool water, herons working.",
+   "sundown": "Light on the water. The bat emergence is visible from the lake's north end.",
+   "evening": "Frogs starting up at the pond.",
+   "night": "Frogs at full chorus. Lake silent."
+  },
+  "orchard": {
+   "deep_night": "Empty.",
+   "dawn": "Orchard master walks the rows, listening to the trees.",
+   "morning": "Whatever is in season is being picked.",
+   "midday": "Crews shift to the shaded southern rows.",
+   "afternoon": "Continued harvest, or pruning out of season.",
+   "sundown": "Crews packing up. The cart loads roll back to the compound.",
+   "evening": "Empty. Owls.",
+   "night": "Empty. Owls and small things."
+  },
+  "cropland": {
+   "deep_night": "Empty.",
+   "dawn": "Field hands assembling at the compound, then walking out.",
+   "morning": "Plowing, sowing, weeding, or harvesting depending on month.",
+   "midday": "Crews break in the shade of the hedgerow.",
+   "afternoon": "Same work as morning, more sweating.",
+   "sundown": "Last rows finished. Tools shouldered. Walking back.",
+   "evening": "Empty.",
+   "night": "Empty. The field mouse population is taking advantage."
+  },
+  "pasture": {
+   "deep_night": "Stock bedded. Dogs alert.",
+   "dawn": "Herdsman and shepherd out to count and inspect.",
+   "morning": "Rotation if today is a rotation day. Otherwise grazing, and watching the grazers.",
+   "midday": "Stock under shade if it's hot. Shepherd has his lunch on the hill.",
+   "afternoon": "Walking the lines. Mending fence. Keeping the dogs honest.",
+   "sundown": "Stock moving toward shelter. Counting again.",
+   "evening": "Cottage lit. Dogs out.",
+   "night": "Stars over the pasture. Dogs still out."
+  },
+  "insectary": {
+   "deep_night": "Firefly shed at maximum activity. The light through the panes is enough to read by.",
+   "dawn": "Insectarist enters. Cricket shed at its loudest.",
+   "morning": "Feeding, cleaning, harvest if it's a harvest day.",
+   "midday": "Quiet. The insectarist mutters to a particular jar.",
+   "afternoon": "More feeding. The flea shed requires constant care.",
+   "sundown": "Firefly shed waking up.",
+   "evening": "Firefly shed glowing. A small wonder.",
+   "night": "Cricket shed quietest. Firefly shed at its peak."
+  },
+  "inn": {
+   "deep_night": "Common room dark. Rooms above quiet, mostly. One room rarely is.",
+   "dawn": "Innkeeper and cook stirring.",
+   "morning": "Travelers' breakfast. Departing adventurers settling their bills.",
+   "midday": "Lull. The cook prepares the night's meal.",
+   "afternoon": "Arrivals begin. The stableboy and grooms are running.",
+   "sundown": "Common room filling. Smell of roasting meat.",
+   "evening": "Peak. Stories, songs, occasional disagreements, the occasional adventurer-contract negotiation in the parlor.",
+   "night": "Common room thinning. Innkeeper draws the door but does not lock it."
+  },
+  "stable": {
+   "deep_night": "Horses shifting. The oversized-stall yard is sometimes restless.",
+   "dawn": "Stablemaster up. Mucking begins.",
+   "morning": "Feeding, grooming, exercise yard work.",
+   "midday": "Calm. The grooms eat in the tack room.",
+   "afternoon": "Arrivals \u2014 most parties reach the farm by afternoon.",
+   "sundown": "Heavy hour. Several mounts in at once. The stablemaster is short-tempered if you interrupt him now.",
+   "evening": "Settled. One groom on watch.",
+   "night": "Quiet but for the unidentifiable noise from the back yard."
+  },
+  "mage_huts": {
+   "deep_night": "Whatever the resident is doing. Lights at unusual angles are common.",
+   "dawn": "Some residents are early risers; some are not.",
+   "morning": "Caretaker visits, leaves provisions, asks no questions unless invited.",
+   "midday": "Mages often walk the valley at midday \u2014 the bramble hedgerow path is particularly favored.",
+   "afternoon": "Working hours for most.",
+   "sundown": "Some residents work specifically at sundown. Their hut windows turn unusual colors.",
+   "evening": "Lamps, candles, and other things lit.",
+   "night": "Working. Always working."
+  },
+  "gatehouse": {
+   "deep_night": "Two guards. Brazier lit. The road dark.",
+   "dawn": "Guard change. Logbook updated.",
+   "morning": "Light traffic. Carts going to the village.",
+   "midday": "Travelers passing through.",
+   "afternoon": "Peak arrival hour.",
+   "sundown": "Final arrivals. Logbook closed for the day.",
+   "evening": "Two guards. Quiet.",
+   "night": "Two guards. The road dark."
+  }
+ },
+ "seasonalOverlays": {
+  "winter": {
+   "lake_and_pond": "Lake half-frozen at the edges, fully iced in deep cold. Ice-cutting crews work mid-Hammerfrost.",
+   "orchard": "Skeletal. Pruning crews instead of harvest crews.",
+   "cropland": "Bare and frozen. No work here unless it's a thaw day.",
+   "pasture": "Stock kept closer to barns. Hay being fed.",
+   "bat_caves": "Bats hibernating in dense clusters. No emergence at sundown. Quiet harvest possible if the keeper is gentle.",
+   "spider_wood": "Quietest season. Webs thick with frost in morning. Some matriarchs in deep torpor.",
+   "apiary": "Hives wrapped. Beekeeper checks weekly, briefly.",
+   "insectary": "Firefly shed mostly empty. Cricket shed running on a small breeding population.",
+   "mage_huts": "Empty. No residents through deep winter.",
+   "curlspire_mill": "Apex chamber working at peak; gem orders accumulated through autumn are processed now.",
+   "papermaking_shed": "Pulping continues; the water from the mill outflow is barely above freezing and the journeymen complain bitterly."
+  },
+  "late_winter": {
+   "pasture": "Lambing. The shepherd's cottage is lit at all hours.",
+   "orchard": "Sap rising. Yew and oak tapping begins.",
+   "bat_caves": "Colony rousing. Daily emergence resumes.",
+   "mage_huts": "Still empty, mostly. A particularly hardy chronomancer sometimes arrives in late Thawmoon.",
+   "chapel_and_cemetery": "Equinox approaches. The cleric is preparing the Awakening Rite."
+  },
+  "spring": {
+   "main_compound": "The Drift sheds along the Northrill; petals on the slow water.",
+   "bat_caves": "Cliff-foil opens white on the headwall ledges; ferns flush at the spring-mouths.",
+   "pasture": "Blackthorn, then hawthorn, whitening the field hedges.",
+   "cropland": "Plowing, sowing. All hands on deck.",
+   "orchard": "Blossom. The bees are happy. Bloomday observed at first apple bloom.",
+   "apiary": "Splitting hives. Early flow honey collected.",
+   "spider_wood": "First spider hatch. The insectarist marks but does not take.",
+   "mage_huts": "First arrivals begin. Special-order requests pick up.",
+   "inn": "Filling up. The road is open again."
+  },
+  "late_spring": {
+   "pasture": "Shearing week.",
+   "cropland": "Steady growth. Weeding intensive.",
+   "orchard": "Petals fall, fruit setting.",
+   "scriptorium": "Visiting mages commissioning new spellbooks at peak rate.",
+   "bookbindery": "Backlog. Two extra hands brought in seasonally."
+  },
+  "summer": {
+   "main_compound": "Grandmother Lind in flower; bees loud at the manor glass.",
+   "cropland": "First grain green. Hot work.",
+   "lake_and_pond": "Workers swim. Reed-cutting accelerates. Water-lilies open across the stilled shallows.",
+   "apiary": "Maximum honey flow.",
+   "alchemy_lab": "Solstice harvest day floods the lab with raw materials all at once."
+  },
+  "high_summer": {
+   "spider_wood": "Spider harvest week. Mid-month. Dangerous and necessary. The sweetwhite at full scent; the wood at its most baited.",
+   "insectary": "Firefly capture nights \u2014 three specific new-moon nights produce the year's supply.",
+   "cropland": "Wheat harvest. The mill grain floor at peak.",
+   "inn": "Highmoon Feast brings the year's biggest crowd.",
+   "lake_and_pond": "Warm enough for swimming at midday."
+  },
+  "autumn": {
+   "lake_and_pond": "Emberfelt turning orange on the southwest hill \u2014 the icehouse crew's frost-clock.",
+   "orchard": "Apple harvest. Acorn drop. Oak galls picked just before they harden.",
+   "cidery_and_pasture": "Slaughter season ramps up.",
+   "mushroom_hollow": "Main flush. Rapid harvest.",
+   "spider_wood": "Mature webs at their best for harvest.",
+   "mage_huts": "Full occupancy. Several residents working toward winter completion of long projects."
+  },
+  "late_autumn": {
+   "cropland": "Last frost-tender crops in. Hot peppers picked before the first frost.",
+   "bat_caves": "Pre-hibernation peak. Heaviest harvest of the year.",
+   "orchard": "Cidery at peak.",
+   "mage_huts": "Emptying. Last residents leave before Longnight.",
+   "chapel_and_cemetery": "Funerary season's peak.",
+   "inn": "Quieting. Adventurer contracts for next year being signed."
+  }
+ },
+ "events": [
+  {
+   "id": "mistletoe_harvest",
+   "name": "Mistletoe Harvest (under full moon)",
+   "month": "Hammerfrost",
+   "day_rule": "first full moon",
+   "criticality": "critical",
+   "primary_location": "mistletoe_grove",
+   "active_hours": [
+    "evening",
+    "night",
+    "deep_night"
+   ],
+   "description": "The head gardener and the resident cleric enter the grove at midnight. Assistants hold sheets beneath the host trees so the mistletoe never touches the ground. The golden sickle is brought from the strongroom for this single night. By dawn, the year's premium-grade Druid Grove mistletoe is wrapped in white linen and conveyed back to the apothecary and scriptorium for distribution.",
+   "consequences_if_missed": "The next full moon will produce serviceable but not premium-grade mistletoe. The Druid Grove spell components for the year will be of lesser quality and the farm will lose one of its more valuable contracts."
+  },
+  {
+   "id": "ice_harvest",
+   "name": "Ice Harvest",
+   "month": "Hammerfrost",
+   "day_rule": "mid-month, when ice is at full thickness",
+   "criticality": "time_sensitive",
+   "primary_location": "lake_and_pond",
+   "active_hours": [
+    "dawn",
+    "morning",
+    "midday",
+    "afternoon"
+   ],
+   "description": "Crews cut blocks from the frozen lake. The clearest, slowest-frozen ice from the deep center is set aside for spell-grade meltwater. The icehouse fills in three or four days of intense labor."
+  },
+  {
+   "id": "longnight_solstice",
+   "name": "Longnight (Winter Solstice)",
+   "month": "Hammerfrost",
+   "day_rule": "winter solstice (15th)",
+   "criticality": "festival_critical",
+   "primary_location": "main_compound",
+   "active_hours": [
+    "sundown",
+    "evening",
+    "night",
+    "deep_night"
+   ],
+   "description": "Three-day festival. Workers' feast in the manor hall. The cleric performs the Year-Turn rites. At precise solstice midnight, he produces the year's most potent batch of holy water \u2014 this single batch is sold in small vials at premium throughout the year. The shell hums noticeably during the rite. The schoolchildren perform the founding pageant, and the gnome makers debut the year's clockwork \u2014 light and automata in the dark."
+  },
+  {
+   "id": "the_quickening",
+   "name": "The Quickening",
+   "month": "Thawmoon",
+   "day_rule": "1st of the month",
+   "criticality": "festival_routine",
+   "primary_location": "curlspire_mill",
+   "active_hours": [
+    "morning",
+    "midday"
+   ],
+   "description": "Gnomish holiday. The mill closes. The Curlspire family climbs the shell and listens. They claim the shell is dreaming forward and that the year's milling fortune depends on what it tells them. Non-gnome workers find this either charming or unnerving."
+  },
+  {
+   "id": "lambing_begins",
+   "name": "Lambing Season",
+   "month": "Thawmoon",
+   "day_rule": "weeks 1\u20133",
+   "criticality": "time_sensitive",
+   "primary_location": "pasture",
+   "active_hours": [
+    "all"
+   ],
+   "description": "Continuous, exhausting work. The shepherd and assistants sleep in the lambing barn. Stillborn lambs and afterbirth go to the apothecary."
+  },
+  {
+   "id": "awakening_rite",
+   "name": "The Awakening Rite",
+   "month": "Thawmoon",
+   "day_rule": "spring equinox dawn",
+   "criticality": "critical",
+   "primary_location": "chapel_and_cemetery",
+   "active_hours": [
+    "dawn"
+   ],
+   "description": "The cleric leads a dawn ceremony renewing the cemetery's consecration. Required mechanically: without it, the consecrated grave dirt becomes ordinary soil for the year and Gentle Repose, Feign Death, and contract funerary services lose their efficacy.",
+   "consequences_if_missed": "Year's grave dirt is non-consecrated. Significant revenue loss."
+  },
+  {
+   "id": "first_planting",
+   "name": "First Planting",
+   "month": "Greenwake",
+   "day_rule": "first full week",
+   "criticality": "time_sensitive",
+   "primary_location": "cropland",
+   "active_hours": [
+    "dawn",
+    "morning",
+    "midday",
+    "afternoon"
+   ],
+   "description": "All available hands plowing and sowing. The bookbindery and scriptorium contribute apprentices for the heavy field work."
+  },
+  {
+   "id": "bloomday",
+   "name": "Bloomday",
+   "month": "Greenwake",
+   "day_rule": "first apple blossom (varies)",
+   "criticality": "festival_routine",
+   "primary_location": "orchard",
+   "active_hours": [
+    "midday",
+    "afternoon",
+    "sundown"
+   ],
+   "description": "Half-day holiday. Workers picnic in the orchard. The cidery's best cask is broached for the staff. Visiting mages, if any are in residence, are invited."
+  },
+  {
+   "id": "shearing_week",
+   "name": "Shearing Week",
+   "month": "Suncrest",
+   "day_rule": "week 2",
+   "criticality": "time_sensitive",
+   "primary_location": "pasture",
+   "active_hours": [
+    "dawn",
+    "morning",
+    "midday",
+    "afternoon",
+    "sundown"
+   ],
+   "description": "Itinerant shearers arrive. Fleece is graded; spell-grade fleece is sorted separately and conveyed directly to the scriptorium and alchemy lab."
+  },
+  {
+   "id": "beltains_fire",
+   "name": "Beltain's Fire",
+   "month": "Suncrest",
+   "day_rule": "15th",
+   "criticality": "festival_critical",
+   "primary_location": "main_compound",
+   "active_hours": [
+    "sundown",
+    "evening",
+    "night"
+   ],
+   "description": "Regional festival. The farm contributes to the village fair. The proprietor announces new contracts. Adventurer commission notices are posted at the gatehouse and the inn \u2014 a useful job-board moment."
+  },
+  {
+   "id": "sunbeam_harvest",
+   "name": "Sunbeam Harvest",
+   "month": "Greatsun",
+   "day_rule": "summer solstice",
+   "criticality": "critical",
+   "primary_location": "orchard",
+   "active_hours": [
+    "dawn",
+    "morning",
+    "midday",
+    "afternoon",
+    "sundown"
+   ],
+   "description": "Sunstone fragments, moonseed (counterintuitively), and saffron threads must be harvested or dried under the unobscured solstice sun. Drying racks are full to overflowing. The apothecary directs traffic.",
+   "consequences_if_missed": "Spell-grade Sunburst components and certain divinatory saffron lots cannot be produced this year."
+  },
+  {
+   "id": "first_haying",
+   "name": "First Hay Cutting",
+   "month": "Greatsun",
+   "day_rule": "after solstice, weather permitting",
+   "criticality": "time_sensitive",
+   "primary_location": "pasture",
+   "active_hours": [
+    "morning",
+    "midday",
+    "afternoon"
+   ],
+   "description": "Pasture cut, dried, stored. Quality of hay determines the quality of next year's tallow, fleece, milk, and bull hair."
+  },
+  {
+   "id": "spider_harvest_week",
+   "name": "Spider Harvest Week",
+   "month": "Hartmoon",
+   "day_rule": "weeks 2\u20133 (set by the insectarist's reading of the wood)",
+   "criticality": "critical",
+   "primary_location": "spider_wood",
+   "active_hours": [
+    "dawn",
+    "morning"
+   ],
+   "description": "The insectarist and a small leather-armored team enter the wood with poles and sacks. Matriarch webs cut down. Live spiders taken. Egg sacs collected. Dangerous; one week of the year only.",
+   "consequences_if_missed": "Year's Web-grade spiderweb shortfall. Apothecary egg-sac stock zero."
+  },
+  {
+   "id": "firefly_nights",
+   "name": "Firefly Nights",
+   "month": "Hartmoon",
+   "day_rule": "three nights flanking the new moon nearest mid-month",
+   "criticality": "critical",
+   "primary_location": "insectary",
+   "active_hours": [
+    "evening",
+    "night",
+    "deep_night"
+   ],
+   "description": "Workers fan out across the pasture and orchard with glass jars. Captured fireflies are housed in the insectary's firefly shed in special humidity-wicked jars of gnomish design. This three-night window supplies the entire year's Light, Dancing Lights, and Fire Shield demand.",
+   "consequences_if_missed": "Year's firefly stock collapses. Glow-component spells unsupplied. Major contract renegotiation."
+  },
+  {
+   "id": "wheat_harvest",
+   "name": "Wheat Harvest",
+   "month": "Hartmoon",
+   "day_rule": "weeks 3\u20134",
+   "criticality": "critical",
+   "primary_location": "cropland",
+   "active_hours": [
+    "dawn",
+    "morning",
+    "midday",
+    "afternoon",
+    "sundown"
+   ],
+   "description": "Two weeks of all-hands labor. The mill grain floor runs dawn to dusk for the next month."
+  },
+  {
+   "id": "highmoon_feast",
+   "name": "Highmoon Feast",
+   "month": "Hartmoon",
+   "day_rule": "brightest full moon of summer",
+   "criticality": "festival_critical",
+   "primary_location": "main_compound",
+   "active_hours": [
+    "sundown",
+    "evening",
+    "night",
+    "deep_night"
+   ],
+   "description": "The farm's largest celebration. Adventurer-contractors, regular customers, regional wizards, and visiting mages all attend. The proprietor negotiates the year's most important contracts under the moon. Tradition holds that handshakes made under the Highmoon are binding regardless of intoxication."
+  },
+  {
+   "id": "apple_harvest",
+   "name": "Apple Harvest and Pressing",
+   "month": "Goldfall",
+   "day_rule": "weeks 1\u20134",
+   "criticality": "critical",
+   "primary_location": "orchard",
+   "active_hours": [
+    "dawn",
+    "morning",
+    "midday",
+    "afternoon",
+    "sundown"
+   ],
+   "description": "The full apple crop comes in. The cidery runs at peak. The press is fed continuously."
+  },
+  {
+   "id": "acorn_and_gall_harvest",
+   "name": "Acorn and Oak Gall Harvest",
+   "month": "Goldfall",
+   "day_rule": "two-week window after first frost",
+   "criticality": "critical",
+   "primary_location": "orchard",
+   "active_hours": [
+    "morning",
+    "midday",
+    "afternoon"
+   ],
+   "description": "Acorns drop within a tight window. Oak galls picked just before they harden. The scriptorium's annual ink supply depends on the gall harvest."
+  },
+  {
+   "id": "mushroom_flush",
+   "name": "Mushroom Hollow Main Flush",
+   "month": "Goldfall",
+   "day_rule": "first week with cold dawns",
+   "criticality": "time_sensitive",
+   "primary_location": "main_compound",
+   "active_hours": [
+    "dawn",
+    "morning"
+   ],
+   "description": "The True Seeing ointment's specific mushroom must be picked within hours of fruiting. Crews go out before dawn for several consecutive mornings."
+  },
+  {
+   "id": "founders_day",
+   "name": "Founder's Day",
+   "month": "Goldfall",
+   "day_rule": "15th",
+   "criticality": "festival_routine",
+   "primary_location": "main_compound",
+   "active_hours": [
+    "midday",
+    "afternoon",
+    "sundown",
+    "evening"
+   ],
+   "description": "The farm's anniversary. Half-day, then a feast in the manor. The proprietor reviews the year's books with senior staff, announces bonuses or new investments. Visiting mages traditionally make small gifts to the farm \u2014 sometimes useful, sometimes alarming."
+  },
+  {
+   "id": "last_pepper_harvest",
+   "name": "Last Pepper Harvest",
+   "month": "Frostmoon",
+   "day_rule": "before first hard frost",
+   "criticality": "critical",
+   "primary_location": "cropland",
+   "active_hours": [
+    "morning",
+    "midday",
+    "afternoon"
+   ],
+   "description": "Hot peppers (Dragon's Breath component) must be in before the frost. Greenhouse beds emptied and cleaned the same week."
+  },
+  {
+   "id": "bat_peak_harvest",
+   "name": "Bat Peak Harvest",
+   "month": "Frostmoon",
+   "day_rule": "weeks 2\u20133",
+   "criticality": "time_sensitive",
+   "primary_location": "bat_caves",
+   "active_hours": [
+    "morning",
+    "midday",
+    "afternoon"
+   ],
+   "description": "Just before hibernation, the colony is at maximum population. The bat-keeper and assistants harvest aggressively. This single month produces nearly a third of the year's bat-component supply."
+  },
+  {
+   "id": "the_quieting",
+   "name": "The Quieting",
+   "month": "Frostmoon",
+   "day_rule": "last full moon before winter",
+   "criticality": "festival_critical",
+   "primary_location": "chapel_and_cemetery",
+   "active_hours": [
+    "sundown",
+    "evening",
+    "night"
+   ],
+   "description": "Subdued local observance. The cleric performs a rite of thanks at the cemetery. Workers leave small offerings at the bramble hedge for what walks at the edge. Wages paid out. Adventurer contracts for the coming year are signed before the moon sets \u2014 the farm's hiring season formally ends here."
+  },
+  {
+   "id": "shell_tending_day",
+   "name": "Shell-Tending Day",
+   "month": "Frostmoon",
+   "day_rule": "set by the gnomes; never the same date twice",
+   "criticality": "festival_critical",
+   "primary_location": "curlspire_mill",
+   "active_hours": [
+    "dawn",
+    "morning",
+    "midday",
+    "afternoon",
+    "sundown"
+   ],
+   "description": "Once a year the Curlspire matriarch declares the shell needs tending. The gnomes climb the shell, polish the exterior, inspect the interior whorls for stress cracks, and perform a ritual the rest of the staff is not invited to witness. The non-gnome workers know better than to ask. The shell hums more sweetly afterward, and the gnomes are unusually quiet for a day."
+  }
+ ],
+ "map": {
+  "overview": {
+   "image": "images/north_across_valley.jpg",
+   "hotspots": [
+    {
+     "id": "dam_westwork",
+     "kind": "cluster",
+     "x": 52,
+     "y": 78,
+     "label": "The Curlspire Dam & Westwork"
+    },
+    {
+     "id": "compound",
+     "kind": "cluster",
+     "x": 63,
+     "y": 38,
+     "label": "The Compound",
+     "selfZoom": {
+      "x": 63,
+      "y": 38,
+      "scale": 2.4
+     }
+    },
+    {
+     "id": "valley_floor",
+     "kind": "cluster",
+     "x": 55,
+     "y": 50,
+     "label": "The Farmed Valley Floor"
+    },
+    {
+     "id": "northrill",
+     "kind": "cluster",
+     "x": 75,
+     "y": 42,
+     "label": "Along the Northrill"
+    },
+    {
+     "id": "scholars",
+     "kind": "cluster",
+     "x": 18,
+     "y": 40,
+     "label": "The Scholars' Ring"
+    },
+    {
+     "id": "north_gate",
+     "kind": "cluster",
+     "x": 80,
+     "y": 25,
+     "label": "The North Gate & Threshold"
+    },
+    {
+     "id": "spider_wood_cluster",
+     "kind": "cluster",
+     "x": 12,
+     "y": 25,
+     "label": "The Spider Wood"
+    },
+    {
+     "id": "guano_caves",
+     "kind": "cluster",
+     "x": 85,
+     "y": 18,
+     "label": "The Guano Caves"
+    },
+    {
+     "id": "yrels",
+     "kind": "cluster",
+     "x": 6,
+     "y": 55,
+     "label": "Yrel's Grove",
+     "noImage": true
+    }
+   ]
+  },
+  "views": {
+   "northgate_compound": {
+    "image": "images/northgate_compound.jpg",
+    "hotspots": [
+     {
+      "id": "gatehouse",
+      "x": 50,
+      "y": 80
+     },
+     {
+      "id": "inn",
+      "x": 44,
+      "y": 68
+     },
+     {
+      "id": "stable",
+      "x": 57,
+      "y": 66
+     },
+     {
+      "id": "the_clearspan",
+      "x": 63,
+      "y": 75
+     },
+     {
+      "id": "inn_wash_house",
+      "x": 39,
+      "y": 73
+     }
+    ]
+   },
+   "east_following_northrill": {
+    "image": "images/east_following_northrill.jpg",
+    "hotspots": [
+     {
+      "id": "downriver_village",
+      "x": 55,
+      "y": 62
+     }
+    ]
+   },
+   "visiting_scholar_huts": {
+    "image": "images/visiting_scholar_huts.jpg",
+    "hotspots": [
+     {
+      "id": "mage_huts",
+      "x": 50,
+      "y": 55
+     }
+    ]
+   },
+   "spider_wood": {
+    "image": "images/spider_wood.jpg",
+    "hotspots": [
+     {
+      "id": "spider_wood",
+      "x": 50,
+      "y": 45
+     }
+    ]
+   },
+   "southeast_to_guano_caves": {
+    "image": "images/southeast_to_guano_caves.jpg",
+    "hotspots": [
+     {
+      "id": "bat_caves",
+      "x": 30,
+      "y": 58
+     }
+    ]
+   },
+   "old_farmstead_and_dam": {
+    "image": "images/old_farmstead_and_dam.jpg",
+    "hotspots": [
+     {
+      "id": "curlspire_mill",
+      "x": 60,
+      "y": 22
+     },
+     {
+      "id": "the_westwork",
+      "x": 36,
+      "y": 20
+     }
+    ]
+   }
+  },
+  "clusters": [
+   {
+    "id": "north_gate",
+    "name": "The North Gate & Threshold",
+    "view": "northgate_compound",
+    "locations": [
+     "gatehouse",
+     "inn",
+     "stable",
+     "inn_wash_house",
+     "the_clearspan"
+    ]
+   },
+   {
+    "id": "compound",
+    "name": "The Compound",
+    "view": null,
+    "locations": [
+     "main_compound",
+     "strongroom",
+     "scriptorium",
+     "bookbindery",
+     "papermaking_shed",
+     "ink_and_bottling",
+     "smithy",
+     "silversmith",
+     "alchemy_lab",
+     "chapel_and_cemetery",
+     "manor_wash",
+     "cottage_wash"
+    ]
+   },
+   {
+    "id": "northrill",
+    "name": "Along the Northrill",
+    "view": "east_following_northrill",
+    "locations": [
+     "downriver_village"
+    ]
+   },
+   {
+    "id": "valley_floor",
+    "name": "The Farmed Valley Floor",
+    "view": null,
+    "locations": [
+     "orchard",
+     "cropland",
+     "pasture",
+     "apiary",
+     "insectary",
+     "mistletoe_grove",
+     "lake_and_pond",
+     "snail_farm"
+    ]
+   },
+   {
+    "id": "scholars",
+    "name": "The Scholars' Ring",
+    "view": "visiting_scholar_huts",
+    "locations": [
+     "mage_huts"
+    ]
+   },
+   {
+    "id": "spider_wood_cluster",
+    "name": "The Spider Wood",
+    "view": "spider_wood",
+    "locations": [
+     "spider_wood"
+    ]
+   },
+   {
+    "id": "guano_caves",
+    "name": "The Guano Caves",
+    "view": "southeast_to_guano_caves",
+    "locations": [
+     "bat_caves"
+    ]
+   },
+   {
+    "id": "dam_westwork",
+    "name": "The Curlspire Dam & Westwork",
+    "view": "old_farmstead_and_dam",
+    "locations": [
+     "curlspire_mill",
+     "the_westwork"
+    ]
+   },
+   {
+    "id": "yrels",
+    "name": "Yrel's Grove",
+    "view": null,
+    "locations": [
+     "yrels_grove"
+    ]
+   }
+  ],
+  "travelInferred": {
+   "_note": "Inferred from geographic prose in wildhollow_compound_layout.md and wildhollow_vale.json (the three-bank scheme, road/river layout). Not canon distances or transit times \u2014 flavor-level 'what's nearby' only.",
+   "north_gate": [
+    "compound",
+    "northrill"
+   ],
+   "compound": [
+    "north_gate",
+    "northrill",
+    "valley_floor"
+   ],
+   "northrill": [
+    "north_gate",
+    "compound",
+    "valley_floor"
+   ],
+   "valley_floor": [
+    "compound",
+    "northrill",
+    "scholars",
+    "spider_wood_cluster"
+   ],
+   "scholars": [
+    "valley_floor",
+    "compound"
+   ],
+   "spider_wood_cluster": [
+    "valley_floor",
+    "dam_westwork"
+   ],
+   "guano_caves": [
+    "dam_westwork",
+    "valley_floor"
+   ],
+   "dam_westwork": [
+    "spider_wood_cluster",
+    "guano_caves",
+    "valley_floor"
+   ],
+   "yrels": [
+    "valley_floor"
+   ]
+  }
+ }
+};
