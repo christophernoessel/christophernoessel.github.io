@@ -65,6 +65,25 @@
     <p class="map-caveat">Hotspot positions are eyeballed against the rendered views, not surveyed — expect them to sit close to, not exactly on, the feature they mark.</p>
   </section>
 
+  <div id="minimap" class="minimap">
+    <button id="minimap-expand-btn" class="minimap-expand-btn" title="Expand orientation map" aria-label="Expand orientation map">⤢</button>
+    <div class="minimap-frame" id="minimap-frame">
+      <img id="minimap-image" src="images/overhead_map.jpg" alt="Orientation map of the whole valley">
+      <div id="minimap-hotspot-layer" class="minimap-hotspot-layer"></div>
+      <div id="minimap-indicator" class="minimap-indicator" hidden></div>
+    </div>
+    <p class="minimap-label">Orientation map <span class="flag-note">(separate render — approximate)</span></p>
+  </div>
+
+  <div id="minimap-overlay" class="minimap-overlay" hidden>
+    <button id="minimap-collapse-btn" class="minimap-collapse-btn" title="Close orientation map" aria-label="Close orientation map">✕</button>
+    <div class="minimap-overlay-frame">
+      <img id="minimap-overlay-image" src="images/overhead_map.jpg" alt="Orientation map of the whole valley, expanded">
+      <div id="minimap-overlay-hotspot-layer" class="minimap-hotspot-layer"></div>
+      <div id="minimap-overlay-indicator" class="minimap-indicator" hidden></div>
+    </div>
+  </div>
+
   <aside class="browser-pane">
     <h2>Place Browser</h2>
     <div id="cluster-list"></div>

@@ -1884,6 +1884,67 @@ const GAZETTEER_DATA = {
    "yrels": [
     "valley_floor"
    ]
+  },
+  "minimap": {
+   "image": "images/overhead_map.jpg",
+   "_note": "A separate top-down render (a different camera/style entirely from the oblique overview), used only for a small corner orientation aid. Hotspot positions here are freshly eyeballed against this image, independent of the main overview's coordinates \u2014 the two images don't share a coordinate space.",
+   "zoomScale": 2.3,
+   "hotspots": [
+    {
+     "id": "north_gate",
+     "x": 38,
+     "y": 26,
+     "confidence": "high \u2014 matches the crossroads village nearest the valley mouth end"
+    },
+    {
+     "id": "compound",
+     "x": 46,
+     "y": 55,
+     "confidence": "high \u2014 matches the walled/hedged field cluster at the valley\u2019s center"
+    },
+    {
+     "id": "scholars",
+     "x": 58,
+     "y": 55,
+     "confidence": "high \u2014 the ring is visibly the same path shape as the dedicated scholar-huts render"
+    },
+    {
+     "id": "dam_westwork",
+     "x": 48,
+     "y": 90,
+     "confidence": "high \u2014 the dam wall and lake are unmistakable"
+    },
+    {
+     "id": "northrill",
+     "x": 75,
+     "y": 18,
+     "confidence": "medium \u2014 matches the tributary stream branching off toward the upper right"
+    },
+    {
+     "id": "valley_floor",
+     "x": 40,
+     "y": 70,
+     "confidence": "low \u2014 general farmed area between the compound and the dam, no distinguishing feature"
+    },
+    {
+     "id": "spider_wood_cluster",
+     "x": 18,
+     "y": 55,
+     "confidence": "low \u2014 placed on a forest patch, not confirmed against canon geography"
+    },
+    {
+     "id": "guano_caves",
+     "x": 85,
+     "y": 45,
+     "confidence": "low \u2014 no cliff/cave feature is actually visible from directly overhead at this resolution"
+    },
+    {
+     "id": "yrels",
+     "x": 15,
+     "y": 85,
+     "confidence": "low \u2014 placed in remaining forest, unconfirmed, no rendered view exists yet either"
+    }
+   ]
   }
  }
 };

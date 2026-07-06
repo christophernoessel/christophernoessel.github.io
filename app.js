@@ -238,14 +238,21 @@
 
     // Travel
     const cluster = clusterById[clusterId];
-    const siblings = cluster.locations.filter(id => id !== locationId).map(id => locationsById[id].name);
+    const siblings = cluster.locations.filter(id => id !== locationId);
     const neighborClusterIds = D.map.travelInferred[clusterId] || [];
-    const neighborNames = neighborClusterIds.map(id => clusterById[id].name);
 
     html += `<p><span class="section-label">Easy to reach from here <span class="flag-note">(inferred, not canon)</span></span>`;
     const bits = [];
-    if (siblings.length) bits.push(`elsewhere in ${cluster.name}: ${siblings.join(", ")}`);
-    if (neighborNames.length) bits.push(`onward to ${neighborNames.join("; ")}`);
+    if (siblings.length) {
+      bits.push(`elsewhere in ${cluster.name}: ` + siblings.map(id =>
+        `<button class="travel-link" data-loc="${id}">${locationsById[id].name}</button>`
+      ).join(", "));
+    }
+    if (neighborClusterIds.length) {
+      bits.push(`onward to ` + neighborClusterIds.map(id =>
+        `<button class="travel-link" data-cluster="${id}">${clusterById[id].name}</button>`
+      ).join("; "));
+    }
     html += bits.length ? bits.join(". ") + "." : "No inferred routes recorded for this area.";
     html += `</p>`;
 
@@ -280,6 +287,14 @@
     outputCard: document.getElementById("output-card"),
     crumbOverview: document.getElementById("crumb-overview"),
     crumbCurrent: document.getElementById("crumb-current"),
+    minimapFrame: document.getElementById("minimap-frame"),
+    minimapHotspotLayer: document.getElementById("minimap-hotspot-layer"),
+    minimapIndicator: document.getElementById("minimap-indicator"),
+    minimapExpandBtn: document.getElementById("minimap-expand-btn"),
+    minimapOverlay: document.getElementById("minimap-overlay"),
+    minimapOverlayHotspotLayer: document.getElementById("minimap-overlay-hotspot-layer"),
+    minimapOverlayIndicator: document.getElementById("minimap-overlay-indicator"),
+    minimapCollapseBtn: document.getElementById("minimap-collapse-btn"),
   };
 
   // ---------------------------------------------------------------
@@ -397,6 +412,7 @@
     });
     el.marker.hidden = true;
     renderBrowser();
+    refreshMinimapIndicators();
   }
 
   function enterCluster(clusterId) {
@@ -436,6 +452,7 @@
     }
     el.marker.hidden = true;
     renderBrowser();
+    refreshMinimapIndicators();
   }
 
   function selectLocation(locId) {
@@ -453,6 +470,84 @@
   }
 
   el.crumbOverview.addEventListener("click", showOverview);
+
+  // ---------------------------------------------------------------
+  // Minimap (separate top-down render; own coordinate space)
+  // ---------------------------------------------------------------
+  function buildMinimapHotspots(layer, onClickCluster) {
+    layer.innerHTML = "";
+    D.map.minimap.hotspots.forEach(h => {
+      const cluster = clusterById[h.id];
+      const btn = document.createElement("button");
+      btn.className = "hotspot";
+      btn.style.left = h.x + "%";
+      btn.style.top = h.y + "%";
+      btn.innerHTML = `<span class="hotspot-tip">${cluster.name}</span>`;
+      btn.addEventListener("click", () => onClickCluster(h.id));
+      layer.appendChild(btn);
+    });
+  }
+
+  function setMinimapIndicator(indicatorEl, clusterId) {
+    if (!clusterId) { indicatorEl.hidden = true; return; }
+    const cluster = clusterById[clusterId];
+    const pin = D.map.minimap.hotspots.find(h => h.id === clusterId);
+    if (!pin) { indicatorEl.hidden = true; return; }
+    indicatorEl.hidden = false;
+    if (cluster.view) {
+      // Dedicated rendered view: no real geometric correspondence to this
+      // top-down image. Show an approximate pulsing locator, not a box.
+      indicatorEl.classList.add("dot");
+      indicatorEl.style.left = pin.x + "%";
+      indicatorEl.style.top = pin.y + "%";
+      indicatorEl.style.width = "";
+      indicatorEl.style.height = "";
+      indicatorEl.title = "Approximate location — this view is a different camera/render, not a crop of the orientation map.";
+    } else {
+      // Self-zoom cluster: an actual proportional crop of the SAME frame,
+      // so a real box (sized by the known zoom scale) is meaningful here.
+      indicatorEl.classList.remove("dot");
+      const fraction = 100 / D.map.minimap.zoomScale; // % of frame width/height visible
+      indicatorEl.style.width = fraction + "%";
+      indicatorEl.style.height = fraction + "%";
+      indicatorEl.style.left = pin.x + "%";
+      indicatorEl.style.top = pin.y + "%";
+      indicatorEl.title = "Approximate crop \u2014 sized to the current zoom level, centered on this area's eyeballed position.";
+    }
+  }
+
+  function refreshMinimapIndicators() {
+    setMinimapIndicator(el.minimapIndicator, state.currentClusterId);
+    setMinimapIndicator(el.minimapOverlayIndicator, state.currentClusterId);
+  }
+
+  function jumpFromMinimap(clusterId) {
+    enterCluster(clusterId);
+    closeMinimapOverlay();
+  }
+
+  function openMinimapOverlay() {
+    el.minimapOverlay.hidden = false;
+  }
+  function closeMinimapOverlay() {
+    el.minimapOverlay.hidden = true;
+  }
+
+  el.minimapExpandBtn.addEventListener("click", openMinimapOverlay);
+  el.minimapCollapseBtn.addEventListener("click", closeMinimapOverlay);
+  el.minimapOverlay.addEventListener("click", (ev) => {
+    if (ev.target === el.minimapOverlay) closeMinimapOverlay();
+  });
+
+  buildMinimapHotspots(el.minimapHotspotLayer, jumpFromMinimap);
+  buildMinimapHotspots(el.minimapOverlayHotspotLayer, jumpFromMinimap);
+
+  el.outputCard.addEventListener("click", (ev) => {
+    const locBtn = ev.target.closest(".travel-link[data-loc]");
+    if (locBtn) { selectLocation(locBtn.dataset.loc); return; }
+    const clusterBtn = ev.target.closest(".travel-link[data-cluster]");
+    if (clusterBtn) { enterCluster(clusterBtn.dataset.cluster); return; }
+  });
 
   // ---------------------------------------------------------------
   // Browser rendering
