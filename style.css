@@ -82,6 +82,7 @@ select, input[type="date"], input[type="number"] {
   color: var(--ink);
 }
 #gnome-day { width: 4.2rem; }
+#longnight-toggle-wrap[hidden] { display: none; }
 .longnight-toggle {
   display: flex; align-items: center; gap: 0.35rem;
   font-size: 0.78rem; text-transform: none; letter-spacing: normal;
@@ -191,6 +192,7 @@ select, input[type="date"], input[type="number"] {
 }
 .hotspot:hover .hotspot-tip, .hotspot:focus-visible .hotspot-tip { opacity: 1; }
 
+.marker[hidden] { display: none; }
 .marker {
   position: absolute;
   transform: translate(-50%, -100%);
@@ -443,6 +445,7 @@ details.cluster[open] summary::after { content: "–"; }
   color: var(--stone);
 }
 
+.minimap-overlay[hidden] { display: none; }
 .minimap-overlay {
   position: fixed;
   inset: 0;
