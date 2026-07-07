@@ -1,90 +1,92 @@
 # Wildhollow Vale — Interactive Gazetteer
 
 Open `index.html` directly in a browser. No server, no build step, no external
-libraries — plain HTML/CSS/JS, per the brief. Everything needed to run is in
-this folder, **including the `images/` subfolder — it must stay alongside
-`index.html`, not be flattened out of it.**
+libraries — plain HTML/CSS/JS. Everything needed to run is in this folder,
+**including the `images/` subfolder — it must stay alongside `index.html`.**
+
+`editor.html` is a companion tool: click any map image to place or correct
+location pins, then export the coordinates as JSON.
+
+## Canon sweep (this update)
+
+The live `wildhollow_vale.json` had drifted from several canon-update docs
+(Westwork, Scholars, Naiads, Provisioning/Cheese) that were written but never
+merged back into the project file. This pass folds in what's geographically
+real:
+
+- **The Underspire** added as a full location (Goldenhead clan-seat, the
+  dam's east arm) — assembled from `wildhollow_underspire.md` since no
+  `vale.json` entry exists despite one being described as added.
+- **The Cheese Caves** added (Pernel Ashcombe, Old Eddric, Bracken; west
+  bluff, near the dairy).
+- **Parthemion's statue** and **the Vacationer hammocks** added to
+  `mage_huts` — both real canon I'd previously flagged as rendering errors.
+  That was wrong; corrected here. Six huts is also canon-correct, not the
+  discrepancy I originally claimed.
+- **The Ice House** added — thin canon, one line only ("the icehouse crew's
+  frost-clock"), flagged as such.
+- **Five saferooms** added as minor satellite pins (bat-caves base, cropland,
+  orchard, pasture, Spider Wood's top gate) — not new clusters, just new pins
+  within existing ones.
+- **The Old Farmstead** added — a real, abandoned point of interest near the
+  dam, distinct from the Westwork (staffed, active). Its exact position is
+  still an estimate from an annotated screenshot, not an editor export —
+  flagged in the data as `estimated: true`.
+- **The "Northrill Village" was removed.** It was my own misreading of a
+  rendered view — there's no settlement there, just farm sheds, an overnight
+  cottage or two, and an old tree on the bank. Replaced with
+  `northrill_farmland`, scoped to match.
+- **`spider_wood`'s compass direction was wrong** ("northwest corner") and
+  has been corrected, both here and at the canon source, to match its real
+  position: a cliff to the southeast, by the Guano Caves.
+- **Aldermere (the lake) moved** from the Farmed Valley Floor cluster to the
+  Curlspire Dam & Westwork cluster, matching its real, editor-placed
+  coordinates rather than my earlier guess.
+
+## Map coordinates: real vs. placeholder
+
+The **minimap** (`overhead_map.jpg`) carries real, editor-placed coordinates
+for both cluster-level pins and individual-location pins — see
+`map.minimap.clusterPins` / `map.minimap.locationPins` in `data.json`.
+
+Most of the **dedicated views** now carry real coordinates too, computed with
+`bpy_extras.object_utils.world_to_camera_view()` against each view's actual
+Blender camera and cross-checked against the editor-placed minimap numbers
+(the one clean 1:1 comparison — `gatehouse` vs. `north_gate` — landed within
+~2 percentage points on both axes). Only two placeholders remain, both
+because no corresponding object exists in the scene to project:
+`underspire_dam_city` (no dedicated marker for the Underspire itself yet)
+and `westrun` in the Guano Caves view (the junction it would project from
+sits just outside that camera's frame). Both are marked
+`placeholder: true` in `data.json` and render with the dashed red outline.
 
 ## What's canon vs. what this app invented
 
-**Straight from the gazetteer (`wildhollow_vale.json`), unaltered:**
-- All 31 location descriptions, staff, components, sounds, and smells.
-- The daily rhythms (8 hour-bands) and seasonal overlays, where the source
-  defines them for a given location.
-- The calendar (eight 45-day months + 5 Longnight days) and the 24 dated events.
-- The gnome-calendar ↔ real-world-date correspondence: the source anchors
-  mid-Longnight to the winter solstice (~Dec 21); this app's date math is a
-  direct implementation of that, not a new assumption.
+**Straight from the gazetteer, unaltered:** all location descriptions,
+daily rhythms, seasonal overlays, the calendar, and the 24 dated events.
 
 **Built for this app, not canon — each labeled in the UI:**
-- **The weather engine.** `wildhollow_weather.md` specifies a deterministic
-  algorithm (seeded regime blocks, per-day detail rolls, box-valley
-  modifiers) but no reference implementation. This app's `describeWeather()`
-  follows the doc's simpler "by-hand fallback" method with its own seeded
-  hash — deterministic (same date always gives the same sky) but not a port
-  of a canonical engine, because none exists to port. It's presented as its
-  own paragraph rather than rewriting each location's weather-conditional
-  behavior line by line (e.g., the wash-house's dry-outside-or-not choice) —
-  that finer integration isn't implemented.
-- **Event day-rule parsing.** Many events have exact or near-exact rules
-  ("the 15th," "week 2") and those are parsed and enforced. Several are
-  deliberately unfixed in canon (moon phase, "weather permitting," "set by
-  the insectarist's judgement") — those surface as a soft "sometime around
-  now" note rather than a fabricated exact day.
-- **Map hotspot placement.** Coordinates are eyeballed against the seven
-  rendered views, not surveyed. Locations with no dedicated rendered view
-  (the Compound's interior buildings, the farmed acreage, Yrel's Grove) are
-  arranged in a small procedural ring around that area's approximate spot on
-  the overview map — a placeholder arrangement, not a real layout.
-- **Travel adjacency** ("easy to reach from here"). Inferred from the
-  three-bank layout described in `wildhollow_compound_layout.md` and the
-  road/river geography in the gazetteer. Flavor-level proximity, not
-  canonical distances or transit times. Entries are clickable — they jump
-  the map/browser to that location or cluster, same as a hotspot would.
-- **The Northrill village.** The `east_following_northrill` rendered view
-  shows a settlement that has no corresponding entry in the gazetteer's
-  location list. It's included as a flavor-only stop (`downriver_village`)
-  with a note that it isn't a real gazetteer record.
-- **The duck pond.** Named in canon (`the_clearspan`'s description mentions
-  "the reed (duck) pond" as something its purifying field protects) but
-  without a standalone location record of its own. Included in the North
-  Gate & Threshold cluster, sourced from that line and flagged as derived
-  rather than a first-class entry.
-- **Yrel's Grove** has no rendered view yet (the first render was rejected)
-  — it's still browsable and clickable on the overview map, just without a
-  close-up image.
-- **The orientation minimap** (bottom-right corner, expandable) uses a
-  separate top-down render (`overhead_map.jpg`) — a different camera and a
-  different art style from the seven oblique atlas-plate views. Its nine
-  cluster markers were eyeballed independently against this image, not
-  copied from the main overview's coordinates, since the two images don't
-  share a coordinate space. Each marker's placement confidence is recorded
-  in `data.json` (`map.minimap.hotspots[].confidence`) — four are a
-  confident match to a visible feature (the gate-side crossroads, the
-  walled compound fields, the Scholars' Ring — its path is visibly the same
-  shape as the dedicated render — and the dam/lake); the rest are
-  best-guess placements with no confirming feature, flagged `low`.
-  The "current view" indicator on the minimap is honest about what it can
-  and can't show: for the three areas with no dedicated render (the
-  Compound, the Farmed Valley Floor, Yrel's Grove), it draws a real
-  proportional crop box, since that view genuinely is a zoomed crop of one
-  image. For the six areas with their own rendered view, it draws a pulsing
-  locator dot instead of a box, because that view is a different
-  photograph — there's no real frustum to project, and a box there would
-  imply a precision that doesn't exist.
+- **The weather engine** — a deterministic implementation of
+  `wildhollow_weather.md`'s "by-hand fallback" method, since no reference
+  engine exists to port. Presented as its own paragraph, not integrated into
+  each location's weather-conditional behavior line by line.
+- **Event day-rule parsing** — exact rules ("the 15th") are enforced;
+  deliberately unfixed ones (moon phase, "weather permitting") surface as a
+  soft "sometime around now" note.
+- **Travel adjacency** ("easy to reach from here") — inferred from the
+  three-bank layout and river geography, not canonical distances. Entries
+  are clickable.
+- **The duck pond** — named in canon (tied to `the_clearspan`'s description)
+  but without its own location record; included in the North Gate cluster,
+  flagged as derived.
 
 ## Known rough edges
-- The **scholar-huts render** added an unrequested statue and shows six
-  cottages rather than the roughly eight positions in the original blockout.
-  Doesn't affect function, just flagging it as a rendering discrepancy.
-- Village building counts in the rendered views don't try to match the
-  original Blender blockouts 1:1 — they're illustrated at a denser, more
-  "real village" level of detail. Only named-location hotspots are pinned,
-  not individual buildings.
 - Leap years are ignored throughout, matching the source calendar's own
-  stated approach (drift is negligible).
-- The interactive overview map is still `north_across_valley.jpg`. A second
-  overview candidate (`whole_valley`, an oblique render from a new Blender
-  camera) was under discussion as a possible replacement, but that thread
-  is still open pending confirmation of which village cluster is which in
-  that image — it hasn't been wired in, so don't be surprised it's not here.
+  stated approach.
+- `saferoom_cropland`'s coordinate (20.9%, 10.8%) sits suspiciously close to
+  where the Duck Pond was marked on the annotated reference image — flagged
+  for the person maintaining this data to confirm or correct.
+- The `whole_valley` oblique overview candidate from earlier in this
+  project's history was never wired in as a replacement for
+  `north_across_valley.jpg` — that thread is effectively superseded by the
+  minimap/editor workflow instead.

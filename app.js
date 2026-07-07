@@ -429,7 +429,9 @@
       clearHotspots();
       view.hotspots.forEach(h => {
         const loc = locationsById[h.id];
-        makeHotspotEl(h.x, h.y, loc.name, () => selectLocation(h.id), h.id);
+        const label = loc.name + (h.placeholder ? " (placeholder \u2014 not yet placed via editor)" : "");
+        const btn = makeHotspotEl(h.x, h.y, label, () => selectLocation(h.id), h.id);
+        if (h.placeholder) btn.classList.add("placeholder-pin");
       });
     } else {
       // No dedicated render: stay on the overview image, zoom into the
@@ -474,9 +476,9 @@
   // ---------------------------------------------------------------
   // Minimap (separate top-down render; own coordinate space)
   // ---------------------------------------------------------------
-  function buildMinimapHotspots(layer, onClickCluster) {
+  function buildMinimapHotspots(layer, onClickCluster, onClickLocation) {
     layer.innerHTML = "";
-    D.map.minimap.hotspots.forEach(h => {
+    D.map.minimap.clusterPins.forEach(h => {
       const cluster = clusterById[h.id];
       const btn = document.createElement("button");
       btn.className = "hotspot";
@@ -486,12 +488,23 @@
       btn.addEventListener("click", () => onClickCluster(h.id));
       layer.appendChild(btn);
     });
+    D.map.minimap.locationPins.forEach(h => {
+      const loc = locationsById[h.id];
+      if (!loc) return;
+      const btn = document.createElement("button");
+      btn.className = "hotspot location-pin";
+      btn.style.left = h.x + "%";
+      btn.style.top = h.y + "%";
+      btn.innerHTML = `<span class="hotspot-tip">${loc.name}${h.estimated ? " (estimated)" : ""}</span>`;
+      btn.addEventListener("click", () => onClickLocation(h.clusterId, h.id));
+      layer.appendChild(btn);
+    });
   }
 
   function setMinimapIndicator(indicatorEl, clusterId) {
     if (!clusterId) { indicatorEl.hidden = true; return; }
     const cluster = clusterById[clusterId];
-    const pin = D.map.minimap.hotspots.find(h => h.id === clusterId);
+    const pin = D.map.minimap.clusterPins.find(h => h.id === clusterId);
     if (!pin) { indicatorEl.hidden = true; return; }
     indicatorEl.hidden = false;
     if (cluster.view) {
@@ -526,6 +539,12 @@
     closeMinimapOverlay();
   }
 
+  function jumpToLocationFromMinimap(clusterId, locationId) {
+    enterCluster(clusterId);
+    selectLocation(locationId);
+    closeMinimapOverlay();
+  }
+
   function openMinimapOverlay() {
     el.minimapOverlay.hidden = false;
   }
@@ -539,8 +558,8 @@
     if (ev.target === el.minimapOverlay) closeMinimapOverlay();
   });
 
-  buildMinimapHotspots(el.minimapHotspotLayer, jumpFromMinimap);
-  buildMinimapHotspots(el.minimapOverlayHotspotLayer, jumpFromMinimap);
+  buildMinimapHotspots(el.minimapHotspotLayer, jumpFromMinimap, jumpToLocationFromMinimap);
+  buildMinimapHotspots(el.minimapOverlayHotspotLayer, jumpFromMinimap, jumpToLocationFromMinimap);
 
   el.outputCard.addEventListener("click", (ev) => {
     const locBtn = ev.target.closest(".travel-link[data-loc]");

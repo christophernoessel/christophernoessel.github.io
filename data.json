@@ -1,6 +1,4 @@
-// Auto-generated from wildhollow_vale.json + editor-placed / camera-projected map hotspot data.
-// See README in the output folder for provenance notes.
-const GAZETTEER_DATA = {
+{
  "calendar": {
   "system": "Goldenhead gnome calendar, adopted farm-wide",
   "provenance": "The farm keeps the local gnome calendar of eight 45-day months. The Crown and most human polities use a twelve-month solar calendar; contracts with Crown agents and long-haul caravans carry both reckonings.",
@@ -2299,4 +2297,4 @@ const GAZETTEER_DATA = {
    ]
   }
  }
-};
+}

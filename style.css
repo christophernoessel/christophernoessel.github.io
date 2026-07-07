@@ -404,6 +404,16 @@ details.cluster[open] summary::after { content: "–"; }
   height: 0.6rem;
   border-width: 1px;
 }
+.hotspot.placeholder-pin {
+  border-style: dashed;
+  background: rgba(150, 60, 60, 0.55);
+}
+.minimap-hotspot-layer .hotspot.location-pin {
+  width: 0.4rem;
+  height: 0.4rem;
+  background: rgba(70, 110, 200, 0.85);
+  border-width: 1px;
+}
 .minimap-indicator {
   position: absolute;
   border: 2px solid var(--lantern-bright);
