@@ -157,7 +157,7 @@ select, input[type="date"], input[type="number"] {
 }
 .hotspot {
   position: absolute;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(calc(1 / var(--zoom, 1)));
   width: 1.6rem;
   height: 1.6rem;
   border-radius: 50%;
@@ -168,7 +168,7 @@ select, input[type="date"], input[type="number"] {
   padding: 0;
 }
 .hotspot:hover, .hotspot:focus-visible {
-  transform: translate(-50%, -50%) scale(1.25);
+  transform: translate(-50%, -50%) scale(calc(1.25 / var(--zoom, 1)));
   background: var(--lantern-bright);
 }
 .hotspot.highlighted {
@@ -195,7 +195,8 @@ select, input[type="date"], input[type="number"] {
 .marker[hidden] { display: none; }
 .marker {
   position: absolute;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%) scale(calc(1 / var(--zoom, 1)));
+  transform-origin: 50% 100%;
   background: none;
   border: none;
   cursor: default;
@@ -231,8 +232,8 @@ select, input[type="date"], input[type="number"] {
   white-space: nowrap;
 }
 @keyframes drop-in {
-  from { transform: translate(-50%, -160%); opacity: 0; }
-  to   { transform: translate(-50%, -100%); opacity: 1; }
+  from { transform: translate(-50%, -160%) scale(calc(1 / var(--zoom, 1))); opacity: 0; }
+  to   { transform: translate(-50%, -100%) scale(calc(1 / var(--zoom, 1))); opacity: 1; }
 }
 
 .map-caveat {

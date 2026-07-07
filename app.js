@@ -406,9 +406,12 @@
     el.mapImage.src = D.map.overview.image;
     el.zoomTarget.style.transformOrigin = "50% 50%";
     el.zoomTarget.style.transform = "scale(1)";
+    el.zoomTarget.style.setProperty("--zoom", 1);
     clearHotspots();
     D.map.overview.hotspots.forEach(h => {
-      makeHotspotEl(h.x, h.y, h.label, () => enterCluster(h.id));
+      const label = h.label + (h.placeholder ? " (off-frame \u2014 approximate)" : "");
+      const btn = makeHotspotEl(h.x, h.y, label, () => enterCluster(h.id));
+      if (h.placeholder) btn.classList.add("placeholder-pin");
     });
     el.marker.hidden = true;
     renderBrowser();
@@ -426,6 +429,7 @@
       el.mapImage.src = view.image;
       el.zoomTarget.style.transformOrigin = "50% 50%";
       el.zoomTarget.style.transform = "scale(1)";
+      el.zoomTarget.style.setProperty("--zoom", 1);
       clearHotspots();
       view.hotspots.forEach(h => {
         const loc = locationsById[h.id];
@@ -435,21 +439,51 @@
       });
     } else {
       // No dedicated render: stay on the overview image, zoom into the
-      // cluster's approximate pin, and arrange its locations in a small
-      // ring around that point (procedural placement, not surveyed).
+      // cluster's approximate pin. Locations with a real, camera-projected
+      // position (cluster.realPositions) use it directly; anything left
+      // over is arranged in a small ring around the pin as a placeholder
+      // (procedural, not surveyed).
       el.mapImage.src = D.map.overview.image;
       const pin = D.map.overview.hotspots.find(h => h.id === clusterId);
-      el.zoomTarget.style.transformOrigin = `${pin.x}% ${pin.y}%`;
-      el.zoomTarget.style.transform = "scale(2.3)";
+      const realPositions = cluster.realPositions || {};
+      const pts = [];
+      cluster.locations.forEach(locId => {
+        const rp = realPositions[locId];
+        if (!rp) return;
+        (Array.isArray(rp) ? rp : [rp]).forEach(p => pts.push(p));
+      });
+      let originX = pin.x, originY = pin.y, scale = 2.3;
+      if (pts.length) {
+        const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+        const minX = Math.min(...xs), maxX = Math.max(...xs);
+        const minY = Math.min(...ys), maxY = Math.max(...ys);
+        originX = (minX + maxX) / 2;
+        originY = (minY + maxY) / 2;
+        const span = Math.max(maxX - minX, maxY - minY, 4);
+        scale = Math.min(5, Math.max(2.3, 60 / span));
+      }
+      el.zoomTarget.style.transformOrigin = `${originX}% ${originY}%`;
+      el.zoomTarget.style.transform = `scale(${scale})`;
+      el.zoomTarget.style.setProperty("--zoom", scale);
       clearHotspots();
-      const n = cluster.locations.length;
+      const ringLocations = cluster.locations.filter(locId => !realPositions[locId]);
+      const n = ringLocations.length;
       const radius = 9;
-      cluster.locations.forEach((locId, i) => {
-        const angle = (i / n) * Math.PI * 2 - Math.PI/2;
-        const x = pin.x + radius * Math.cos(angle);
-        const y = pin.y + radius * Math.sin(angle) * 0.6;
+
+      cluster.locations.forEach(locId => {
         const loc = locationsById[locId];
-        makeHotspotEl(x, y, loc.name, () => selectLocation(locId), locId);
+        if (realPositions[locId]) {
+          const positions = Array.isArray(realPositions[locId]) ? realPositions[locId] : [realPositions[locId]];
+          positions.forEach(({ x, y }) => makeHotspotEl(x, y, loc.name, () => selectLocation(locId), locId));
+        }
+      });
+      ringLocations.forEach((locId, i) => {
+        const angle = (i / n) * Math.PI * 2 - Math.PI/2;
+        const x = originX + radius * Math.cos(angle);
+        const y = originY + radius * Math.sin(angle) * 0.6;
+        const loc = locationsById[locId];
+        const btn = makeHotspotEl(x, y, loc.name + " (approximate)", () => selectLocation(locId), locId);
+        btn.classList.add("placeholder-pin");
       });
     }
     el.marker.hidden = true;

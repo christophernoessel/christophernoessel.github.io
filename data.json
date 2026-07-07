@@ -980,10 +980,10 @@
    ]
   },
   {
-   "id": "saferoom_cropland",
-   "name": "Saferoom \u2014 Cropland",
+   "id": "saferoom_north",
+   "name": "Saferoom \u2014 North",
    "type": "canon",
-   "description": "A small keyed shelter serving the cropland fields. Part of the valley's distributed storm-shelter network; thin canon, one line each in the saferooms handoff.",
+   "description": "A small keyed shelter beside the Reed Pond, serving anyone working the northern farmland when Ador hits \u2014 the Duck Pond end of the valley is a long run from the gate. Renamed from 'Saferoom \u2014 Cropland' at the proprietor's direction; the Blender object has been renamed to match (Saferoom_North).",
    "staff": [],
    "components_produced": [],
    "sounds": [
@@ -1439,6 +1439,62 @@
    "components_produced": [],
    "sounds": [],
    "smells": []
+  },
+  {
+   "id": "saferoom_alderrun_ne",
+   "name": "Saferoom \u2014 Alderrun NE Bank",
+   "type": "canon",
+   "description": "A keyed shelter on the northeast bank of the Alderrun at the goods bridge. One of four paired bank shelters added at the proprietor's direction so that no farm worker ever has to ford a river during an Ador crossing \u2014 each bridge has a shelter on both banks. Built in the 3D model this session; not yet written into the canon docs.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [
+    "a heavy door"
+   ],
+   "smells": [
+    "stone"
+   ]
+  },
+  {
+   "id": "saferoom_alderrun_sw",
+   "name": "Saferoom \u2014 Alderrun SW Bank",
+   "type": "canon",
+   "description": "A keyed shelter on the southwest bank of the Alderrun at the goods bridge. One of four paired bank shelters added at the proprietor's direction so that no farm worker ever has to ford a river during an Ador crossing \u2014 each bridge has a shelter on both banks. Built in the 3D model this session; not yet written into the canon docs.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [
+    "a heavy door"
+   ],
+   "smells": [
+    "stone"
+   ]
+  },
+  {
+   "id": "saferoom_northrill_n",
+   "name": "Saferoom \u2014 Northrill N Bank",
+   "type": "canon",
+   "description": "A keyed shelter on the north bank of the Northrill at the keep bridge. One of four paired bank shelters added at the proprietor's direction so that no farm worker ever has to ford a river during an Ador crossing \u2014 each bridge has a shelter on both banks. Built in the 3D model this session; not yet written into the canon docs.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [
+    "a heavy door"
+   ],
+   "smells": [
+    "stone"
+   ]
+  },
+  {
+   "id": "saferoom_northrill_s",
+   "name": "Saferoom \u2014 Northrill S Bank",
+   "type": "canon",
+   "description": "A keyed shelter on the south bank of the Northrill at the keep bridge. One of four paired bank shelters added at the proprietor's direction so that no farm worker ever has to ford a river during an Ador crossing \u2014 each bridge has a shelter on both banks. Built in the 3D model this session; not yet written into the canon docs.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [
+    "a heavy door"
+   ],
+   "smells": [
+    "stone"
+   ]
   }
  ],
  "dailyRhythms": {
@@ -2151,15 +2207,15 @@
     {
      "id": "dam_westwork",
      "kind": "cluster",
-     "x": 52,
-     "y": 78,
+     "x": 50.7,
+     "y": 65.2,
      "label": "The Curlspire Dam & Westwork"
     },
     {
      "id": "compound",
      "kind": "cluster",
-     "x": 63,
-     "y": 38,
+     "x": 52.0,
+     "y": 30.2,
      "label": "The Compound",
      "selfZoom": {
       "x": 63,
@@ -2170,50 +2226,52 @@
     {
      "id": "valley_floor",
      "kind": "cluster",
-     "x": 55,
-     "y": 50,
+     "x": 51.0,
+     "y": 36.0,
      "label": "The Farmed Valley Floor"
     },
     {
      "id": "northrill",
      "kind": "cluster",
-     "x": 75,
-     "y": 42,
+     "x": 52.8,
+     "y": 30.3,
      "label": "Along the Northrill"
     },
     {
      "id": "scholars",
      "kind": "cluster",
-     "x": 18,
-     "y": 40,
+     "x": 71.1,
+     "y": 30.0,
      "label": "The Scholars' Ring"
     },
     {
      "id": "north_gate",
      "kind": "cluster",
-     "x": 80,
-     "y": 25,
+     "x": 49.7,
+     "y": 29.0,
      "label": "The North Gate & Threshold"
     },
     {
      "id": "spider_wood_cluster",
      "kind": "cluster",
-     "x": 12,
-     "y": 25,
-     "label": "The Spider Wood"
+     "x": 97.0,
+     "y": 15.7,
+     "label": "The Spider Wood",
+     "placeholder": true
     },
     {
      "id": "guano_caves",
      "kind": "cluster",
-     "x": 85,
-     "y": 18,
-     "label": "The Guano Caves"
+     "x": 97.0,
+     "y": 46.7,
+     "label": "The Guano Caves",
+     "placeholder": true
     },
     {
      "id": "yrels",
      "kind": "cluster",
-     "x": 6,
-     "y": 55,
+     "x": 29.4,
+     "y": 35.6,
      "label": "Yrel's Grove",
      "noImage": true
     }
@@ -2668,11 +2726,15 @@
      "insectary",
      "mistletoe_grove",
      "snail_farm",
-     "saferoom_cropland",
+     "saferoom_north",
      "saferoom_orchard",
      "saferoom_pasture",
      "alderrun",
-     "duck_pond"
+     "duck_pond",
+     "saferoom_alderrun_ne",
+     "saferoom_alderrun_sw",
+     "saferoom_northrill_n",
+     "saferoom_northrill_s"
     ],
     "realPositions": {
      "duck_pond": {
@@ -2686,6 +2748,54 @@
      "insectary": {
       "x": 61.1,
       "y": 32.9
+     },
+     "orchard": {
+      "x": 67.7,
+      "y": 37.4
+     },
+     "cropland": {
+      "x": 58.0,
+      "y": 28.6
+     },
+     "pasture": {
+      "x": 47.1,
+      "y": 38.4
+     },
+     "mistletoe_grove": {
+      "x": 61.4,
+      "y": 31.3
+     },
+     "alderrun": {
+      "x": 50.7,
+      "y": 30.1
+     },
+     "saferoom_north": {
+      "x": 42.8,
+      "y": 27.1
+     },
+     "saferoom_orchard": {
+      "x": 57.7,
+      "y": 32.2
+     },
+     "saferoom_pasture": {
+      "x": 39.8,
+      "y": 52.3
+     },
+     "saferoom_alderrun_ne": {
+      "x": 51.2,
+      "y": 30.0
+     },
+     "saferoom_alderrun_sw": {
+      "x": 50.1,
+      "y": 30.2
+     },
+     "saferoom_northrill_n": {
+      "x": 52.9,
+      "y": 30.1
+     },
+     "saferoom_northrill_s": {
+      "x": 52.6,
+      "y": 30.4
      }
     }
    },
@@ -2908,7 +3018,7 @@
      "clusterId": "guano_caves"
     },
     {
-     "id": "saferoom_cropland",
+     "id": "saferoom_north",
      "x": 20.9,
      "y": 10.8,
      "clusterId": "valley_floor"
@@ -2979,6 +3089,30 @@
      "y": 61.2,
      "clusterId": "dam_westwork",
      "estimated": true
+    },
+    {
+     "id": "saferoom_alderrun_ne",
+     "x": 42.0,
+     "y": 26.8,
+     "clusterId": "valley_floor"
+    },
+    {
+     "id": "saferoom_alderrun_sw",
+     "x": 40.4,
+     "y": 28.3,
+     "clusterId": "valley_floor"
+    },
+    {
+     "id": "saferoom_northrill_n",
+     "x": 44.8,
+     "y": 27.4,
+     "clusterId": "valley_floor"
+    },
+    {
+     "id": "saferoom_northrill_s",
+     "x": 44.5,
+     "y": 28.9,
+     "clusterId": "valley_floor"
     }
    ]
   }
