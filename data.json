@@ -1049,6 +1049,396 @@
     "old timber",
     "damp stone"
    ]
+  },
+  {
+   "id": "counting_house",
+   "name": "The Counting House",
+   "type": "inferred",
+   "description": "A small stone office near the North Gate, dating from the Crown Period. No gazetteer text exists for it \u2014 this description is a general, invented placeholder based on its name and era, not canon. Likely function: tallying road traffic, tolls, or trade duties passing through the gate, given the period's increased Crown attention to the valley's trade.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [
+    "scratching quills",
+    "coin counted onto a table"
+   ],
+   "smells": [
+    "old paper",
+    "wax seals"
+   ]
+  },
+  {
+   "id": "inner_watch_tower",
+   "name": "The Inner Watch Tower",
+   "type": "inferred",
+   "description": "A tower standing watch over the compound side of the gate approach, distinct from the outward-facing Watchtower. No gazetteer text exists \u2014 general invented placeholder only. Likely function: keeping an eye on the village and road traffic from the inside, complementing the outward watch.",
+   "staff": [
+    "a watch \u2014 unnamed"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "boots on stone stairs"
+   ],
+   "smells": [
+    "stone",
+    "oiled metal"
+   ]
+  },
+  {
+   "id": "watchtower",
+   "name": "The Watchtower",
+   "type": "inferred",
+   "description": "A crenellated tower overlooking the north road from outside the gate. No gazetteer text exists \u2014 general invented placeholder only. Likely function: the outward-facing defensive watch, keeping an eye on the road before it reaches the gate itself.",
+   "staff": [
+    "a watch \u2014 unnamed"
+   ],
+   "components_produced": [],
+   "sounds": [
+    "wind at height",
+    "a distant bell if trouble is sighted"
+   ],
+   "smells": [
+    "cold stone"
+   ]
+  },
+  {
+   "id": "swimming_jetty",
+   "name": "The Swimming Jetty",
+   "type": "inferred",
+   "description": "A small jetty on Aldermere used for swimming and access to the water. No gazetteer text exists for this \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "bat_keeper_cottage",
+   "name": "The Bat-Keeper's Cottage",
+   "type": "inferred",
+   "description": "The bat-keeper's home near the cave mouths. No gazetteer text exists for this \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "curing_shed",
+   "name": "The Curing Shed",
+   "type": "inferred",
+   "description": "A shed for curing and processing harvested guano. No gazetteer text exists for this \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "tray_shed",
+   "name": "The Tray Shed",
+   "type": "inferred",
+   "description": "Storage for the slatted guano-collection trays. No gazetteer text exists for this \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "pawl_shed",
+   "name": "The Pawl Shed",
+   "type": "inferred",
+   "description": "Housing for the mechanism securing the cliff-lift at its base. No gazetteer text exists for this \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "cliff_lift",
+   "name": "The Cliff Lift",
+   "type": "inferred",
+   "description": "A cable lift carrying workers and harvest up and down the bat-cave cliff face. No gazetteer text exists for this \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "retreat_shed",
+   "name": "The Retreat Shed",
+   "type": "inferred",
+   "description": "A shelter at the top of the cliff lift, near the stairhead gate. No gazetteer text exists for this \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "leaning_stones",
+   "name": "The Leaning Stones",
+   "type": "inferred",
+   "description": "A prehistoric dolmen-and-menhir circle. Thin canon \u2014 the source material notes only that a past magical storm left 'the Asking's truth-pool' here. No gazetteer text exists for this \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "parthemion_folly",
+   "name": "Parthemion's Folly",
+   "type": "canon",
+   "description": "A statue among the mage huts, mentioned in the Scholars canon as standing near three hammocks facing Aldermere. Its 'Folly' name and the story behind it aren't detailed in the source material beyond that \u2014 noted here as a real, named feature, not invented, but the deeper lore is thin.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "cidery",
+   "name": "The Cidery",
+   "type": "inferred",
+   "description": "Where the orchard's apple crop is pressed and fermented into cider. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "herdsman_cottage",
+   "name": "The Herdsman's Cottage",
+   "type": "inferred",
+   "description": "Home of the herdsman who works the pasture. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "pig_pen",
+   "name": "The Pig Pen",
+   "type": "inferred",
+   "description": "A fenced sty and yard for the farm's pigs. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "watchman_cottage",
+   "name": "The Watchman's Cottage",
+   "type": "inferred",
+   "description": "Old Eddric's cottage, kept with his dog Bracken, watching over the Cheese Caves. Real canon (wildhollow_creamery_and_cheese.md), reused here as its own map pin.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "dairy",
+   "name": "The Dairy",
+   "type": "inferred",
+   "description": "Where milk is drawn each morning, crossing straight to the creamery. Real canon (wildhollow_creamery_and_cheese.md).",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "creamery",
+   "name": "The Creamery",
+   "type": "inferred",
+   "description": "Where the day's milk is turned into cheese by Pernel Ashcombe, before the wheels are carried to the Cheese Caves to age. Real canon (wildhollow_creamery_and_cheese.md).",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "duck_pond",
+   "name": "The Duck Pond",
+   "type": "inferred",
+   "description": "Named in canon via the_clearspan's description (the purifying field protects 'the reed (duck) pond'), but without its own standalone record. Given its own pin here since it's a real, distinct, named feature.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "toolhouse",
+   "name": "The Tool House",
+   "type": "inferred",
+   "description": "Storage for the farm\u2019s hand tools and implements. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "teamster_stable",
+   "name": "The Teamster's Stable",
+   "type": "inferred",
+   "description": "Stabling for the draft teams that pull the farm\u2019s wagons. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "loafing_shed",
+   "name": "The Loafing Shed",
+   "type": "inferred",
+   "description": "An open-sided shed where draft animals rest between hauls. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "mogh_cottage",
+   "name": "Mogh's Cottage",
+   "type": "inferred",
+   "description": "A named cottage in the transport yard \u2014 presumably home to a teamster or hand called Mogh. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "wagon_barn",
+   "name": "The Wagon Barn",
+   "type": "inferred",
+   "description": "Storage and repair space for the farm\u2019s wagons and carts. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "cartwright_wheelwright",
+   "name": "The Cartwright & Wheelwright's Shop",
+   "type": "inferred",
+   "description": "Where wagon wheels and cart bodies are built and repaired. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "harness_room",
+   "name": "The Harness Room",
+   "type": "inferred",
+   "description": "Storage and repair for draft-team harness and tack. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "brewhouse",
+   "name": "The Brewhouse",
+   "type": "inferred",
+   "description": "Mungo's brewhouse, supplying the farm's ale. Real canon (wildhollow_brewhouse_and_ales.md), reused here as its own map pin.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "maltings",
+   "name": "The Maltings",
+   "type": "inferred",
+   "description": "Where grain is malted for the brewhouse, adjoining it directly. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "granary",
+   "name": "The Granary",
+   "type": "inferred",
+   "description": "Grain storage on staddle stones, with an owl loft built into the design. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "receiving_warehouse",
+   "name": "The Receiving Warehouse",
+   "type": "inferred",
+   "description": "Where incoming goods and trade shipments are received and stored. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "apothecary",
+   "name": "The Apothecary Annex",
+   "type": "inferred",
+   "description": "An annex handling the compound's medicinal and alchemical retail trade.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "drying_lofts",
+   "name": "The Drying Lofts",
+   "type": "inferred",
+   "description": "A set of three drying lofts near the mill, used for curing harvested materials. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "tannery",
+   "name": "The Tannery",
+   "type": "inferred",
+   "description": "Where hides from the slaughterhouse are cured into leather. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "slaughterhouse",
+   "name": "The Slaughterhouse",
+   "type": "inferred",
+   "description": "The compound's slaughter and butchery building.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "carpenter_workshop",
+   "name": "The Carpenter's Workshop",
+   "type": "inferred",
+   "description": "Woodworking shop with an adjoining timber yard. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "workers_cottages",
+   "name": "The Workers' Cottages",
+   "type": "inferred",
+   "description": "Three cottages housing compound workers. No gazetteer text exists for it \u2014 general invented placeholder, not canon.",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
+  },
+  {
+   "id": "hedge_bramble",
+   "name": "The Hedge",
+   "type": "inferred",
+   "description": "The bramble hedgerow running the compound's north approach \u2014 blackthorn, then hawthorn, then dog-roses through the seasons. Real canon (wildhollow_flora.md).",
+   "staff": [],
+   "components_produced": [],
+   "sounds": [],
+   "smells": []
   }
  ],
  "dailyRhythms": {
@@ -1850,13 +2240,28 @@
      },
      {
       "id": "the_clearspan",
-      "x": 53.5,
-      "y": 58.5
+      "x": 65.8,
+      "y": 70.5
      },
      {
       "id": "inn_wash_house",
       "x": 56.0,
       "y": 54.5
+     },
+     {
+      "id": "counting_house",
+      "x": 56.3,
+      "y": 49.2
+     },
+     {
+      "id": "inner_watch_tower",
+      "x": 53.0,
+      "y": 52.8
+     },
+     {
+      "id": "watchtower",
+      "x": 50.2,
+      "y": 68.2
      }
     ]
    },
@@ -1875,8 +2280,38 @@
     "hotspots": [
      {
       "id": "mage_huts",
-      "x": 52.4,
-      "y": 46.2
+      "x": 21.4,
+      "y": 38.4
+     },
+     {
+      "id": "mage_huts",
+      "x": 22.6,
+      "y": 57.6
+     },
+     {
+      "id": "mage_huts",
+      "x": 38.7,
+      "y": 75.5
+     },
+     {
+      "id": "mage_huts",
+      "x": 64.8,
+      "y": 80.1
+     },
+     {
+      "id": "mage_huts",
+      "x": 81.2,
+      "y": 74.3
+     },
+     {
+      "id": "mage_huts",
+      "x": 81.8,
+      "y": 63.9
+     },
+     {
+      "id": "parthemion_folly",
+      "x": 52.6,
+      "y": 33.9
      }
     ]
    },
@@ -1913,6 +2348,41 @@
       "x": 90.0,
       "y": 60.0,
       "placeholder": true
+     },
+     {
+      "id": "bat_keeper_cottage",
+      "x": 27.3,
+      "y": 44.1
+     },
+     {
+      "id": "curing_shed",
+      "x": 41.8,
+      "y": 65.8
+     },
+     {
+      "id": "tray_shed",
+      "x": 48.7,
+      "y": 74.0
+     },
+     {
+      "id": "pawl_shed",
+      "x": 55.9,
+      "y": 82.8
+     },
+     {
+      "id": "cliff_lift",
+      "x": 53.7,
+      "y": 55.0
+     },
+     {
+      "id": "retreat_shed",
+      "x": 50.0,
+      "y": 8.2
+     },
+     {
+      "id": "leaning_stones",
+      "x": 60.9,
+      "y": 59.4
      }
     ]
    },
@@ -1949,6 +2419,11 @@
       "id": "old_farmstead",
       "x": 51.7,
       "y": 66.6
+     },
+     {
+      "id": "swimming_jetty",
+      "x": 29.5,
+      "y": 26.7
      }
     ]
    }
@@ -1963,7 +2438,10 @@
      "inn",
      "stable",
      "inn_wash_house",
-     "the_clearspan"
+     "the_clearspan",
+     "counting_house",
+     "inner_watch_tower",
+     "watchtower"
     ]
    },
    {
@@ -1983,8 +2461,192 @@
      "chapel_and_cemetery",
      "manor_wash",
      "cottage_wash",
-     "cheese_caves"
-    ]
+     "cheese_caves",
+     "cidery",
+     "herdsman_cottage",
+     "pig_pen",
+     "watchman_cottage",
+     "dairy",
+     "creamery",
+     "toolhouse",
+     "teamster_stable",
+     "loafing_shed",
+     "mogh_cottage",
+     "wagon_barn",
+     "cartwright_wheelwright",
+     "harness_room",
+     "brewhouse",
+     "maltings",
+     "granary",
+     "receiving_warehouse",
+     "apothecary",
+     "drying_lofts",
+     "tannery",
+     "slaughterhouse",
+     "carpenter_workshop",
+     "hedge_bramble",
+     "workers_cottages"
+    ],
+    "realPositions": {
+     "cidery": {
+      "x": 60.0,
+      "y": 31.1
+     },
+     "herdsman_cottage": {
+      "x": 36.8,
+      "y": 48.8
+     },
+     "pig_pen": {
+      "x": 48.1,
+      "y": 30.6
+     },
+     "watchman_cottage": {
+      "x": 44.5,
+      "y": 31.5
+     },
+     "dairy": {
+      "x": 50.3,
+      "y": 30.8
+     },
+     "creamery": {
+      "x": 49.4,
+      "y": 30.9
+     },
+     "toolhouse": {
+      "x": 49.7,
+      "y": 29.2
+     },
+     "teamster_stable": {
+      "x": 52.1,
+      "y": 29.2
+     },
+     "loafing_shed": {
+      "x": 52.0,
+      "y": 29.1
+     },
+     "mogh_cottage": {
+      "x": 52.4,
+      "y": 29.0
+     },
+     "wagon_barn": {
+      "x": 51.2,
+      "y": 29.4
+     },
+     "cartwright_wheelwright": {
+      "x": 51.9,
+      "y": 29.4
+     },
+     "harness_room": {
+      "x": 51.2,
+      "y": 29.5
+     },
+     "brewhouse": {
+      "x": 53.2,
+      "y": 29.5
+     },
+     "maltings": {
+      "x": 53.9,
+      "y": 29.7
+     },
+     "granary": {
+      "x": 54.5,
+      "y": 29.7
+     },
+     "receiving_warehouse": {
+      "x": 50.1,
+      "y": 29.3
+     },
+     "apothecary": {
+      "x": 50.4,
+      "y": 29.6
+     },
+     "drying_lofts": {
+      "x": 50.4,
+      "y": 29.6
+     },
+     "tannery": {
+      "x": 48.7,
+      "y": 29.7
+     },
+     "slaughterhouse": {
+      "x": 48.9,
+      "y": 29.7
+     },
+     "carpenter_workshop": {
+      "x": 49.6,
+      "y": 29.8
+     },
+     "hedge_bramble": {
+      "x": 48.2,
+      "y": 27.9
+     },
+     "main_compound": {
+      "x": 52.0,
+      "y": 30.2
+     },
+     "strongroom": {
+      "x": 52.1,
+      "y": 30.4
+     },
+     "silversmith": {
+      "x": 52.8,
+      "y": 30.4
+     },
+     "scriptorium": {
+      "x": 52.7,
+      "y": 30.7
+     },
+     "bookbindery": {
+      "x": 52.3,
+      "y": 30.6
+     },
+     "manor_wash": {
+      "x": 52.1,
+      "y": 30.8
+     },
+     "cottage_wash": {
+      "x": 50.7,
+      "y": 30.4
+     },
+     "alchemy_lab": {
+      "x": 48.4,
+      "y": 29.5
+     },
+     "ink_and_bottling": {
+      "x": 48.6,
+      "y": 29.6
+     },
+     "papermaking_shed": {
+      "x": 49.1,
+      "y": 29.8
+     },
+     "smithy": {
+      "x": 49.9,
+      "y": 29.9
+     },
+     "chapel_and_cemetery": {
+      "x": 53.2,
+      "y": 30.1
+     },
+     "cheese_caves": {
+      "x": 43.5,
+      "y": 31.5
+     },
+     "workers_cottages": [
+      {
+       "x": 50.7,
+       "y": 30.2
+      },
+      {
+       "x": 50.6,
+       "y": 30.1
+      },
+      {
+       "x": 50.5,
+       "y": 30.2
+      }
+     ]
+    }
    },
    {
     "id": "northrill",
@@ -2009,15 +2671,31 @@
      "saferoom_cropland",
      "saferoom_orchard",
      "saferoom_pasture",
-     "alderrun"
-    ]
+     "alderrun",
+     "duck_pond"
+    ],
+    "realPositions": {
+     "duck_pond": {
+      "x": 43.9,
+      "y": 26.8
+     },
+     "apiary": {
+      "x": 54.9,
+      "y": 33.6
+     },
+     "insectary": {
+      "x": 61.1,
+      "y": 32.9
+     }
+    }
    },
    {
     "id": "scholars",
     "name": "The Scholars' Ring",
     "view": "visiting_scholar_huts",
     "locations": [
-     "mage_huts"
+     "mage_huts",
+     "parthemion_folly"
     ]
    },
    {
@@ -2036,7 +2714,14 @@
     "locations": [
      "bat_caves",
      "saferoom_bat_cave",
-     "westrun"
+     "westrun",
+     "bat_keeper_cottage",
+     "curing_shed",
+     "tray_shed",
+     "pawl_shed",
+     "cliff_lift",
+     "retreat_shed",
+     "leaning_stones"
     ]
    },
    {
@@ -2049,7 +2734,8 @@
      "underspire_dam_city",
      "lake_and_pond",
      "ice_house",
-     "old_farmstead"
+     "old_farmstead",
+     "swimming_jetty"
     ]
    },
    {
