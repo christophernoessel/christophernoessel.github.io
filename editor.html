@@ -302,7 +302,11 @@
     if (!currentImageMeta || !D) { alert("Pick a known map image first (existing pins aren't available for local files)."); return; }
     let hotspots = null;
     if (currentImageMeta.key === "overview") hotspots = D.map.overview.hotspots.map(h => ({ id: h.id, x: h.x, y: h.y }));
-    else if (currentImageMeta.key === "minimap") hotspots = D.map.minimap.hotspots.map(h => ({ id: h.id, x: h.x, y: h.y }));
+    else if (currentImageMeta.key === "minimap") {
+      const clusterPins = (D.map.minimap.clusterPins || D.map.minimap.hotspots || []).map(h => ({ id: h.id, x: h.x, y: h.y }));
+      const locationPins = (D.map.minimap.locationPins || []).map(h => ({ id: h.id, x: h.x, y: h.y }));
+      hotspots = clusterPins.concat(locationPins);
+    }
     else if (currentImageMeta.key.startsWith("view:")) {
       const viewKey = currentImageMeta.key.slice(5);
       hotspots = (D.map.views[viewKey].hotspots || []).map(h => ({ id: h.id, x: h.x, y: h.y }));
