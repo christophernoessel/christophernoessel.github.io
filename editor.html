@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:,">
+<title>Wildhollow Vale — Location Editor</title>
+<style>
+  :root {
+    --ink: #23281f; --parchment: #ece3cf; --parchment-edge: #cdbb8c;
+    --moss: #45543a; --moss-dark: #313e29; --stone: #7c8478;
+    --sky: #dfe4de; --lantern: #b9812f; --lantern-bright: #d99e3f;
+    --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--sky); color: var(--ink); font-family: var(--body-font); }
+  header {
+    background: var(--moss-dark); color: var(--parchment);
+    padding: 1rem 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: center;
+  }
+  header h1 { font-size: 1.25rem; margin: 0; }
+  header .note { font-size: 0.8rem; opacity: 0.8; max-width: 480px; }
+  .controls-bar {
+    display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;
+    padding: 0.8rem 1.5rem; background: #f2ede0; border-bottom: 1px solid var(--parchment-edge);
+  }
+  .controls-bar label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--stone); display: block; margin-bottom: 0.2rem; }
+  select, input[type="text"], input[type="number"], button {
+    font-family: var(--body-font); font-size: 0.9rem; padding: 0.35rem 0.55rem;
+    border-radius: 4px; border: 1px solid var(--parchment-edge); background: white;
+  }
+  button { cursor: pointer; background: var(--moss); color: white; border: none; }
+  button:hover { background: var(--moss-dark); }
+  button.secondary { background: white; color: var(--ink); border: 1px solid var(--parchment-edge); }
+  button.secondary:hover { background: #eee; }
+  button.danger { background: #a33; }
+  button.danger:hover { background: #822; }
+
+  .layout { display: grid; grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr); gap: 1.25rem; padding: 1.25rem 1.5rem; align-items: start; }
+  @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+
+  .canvas-wrap { position: relative; border: 1px solid var(--parchment-edge); border-radius: 8px; overflow: hidden; background: #000; }
+  .canvas-wrap.empty { min-height: 320px; display: flex; align-items: center; justify-content: center; color: #888; font-style: italic; }
+  #stage { position: relative; width: 100%; cursor: crosshair; }
+  #stage img { display: block; width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
+  .pin {
+    position: absolute; transform: translate(-50%, -50%);
+    width: 1.4rem; height: 1.4rem; border-radius: 50%;
+    background: rgba(217, 158, 63, 0.85); border: 2px solid white;
+    cursor: grab; display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; color: #222; font-weight: 700;
+  }
+  .pin:active { cursor: grabbing; }
+  .pin.new-pin { background: rgba(60, 140, 220, 0.85); }
+
+  .panel { background: #f2ede0; border: 1px solid var(--parchment-edge); border-radius: 8px; padding: 1rem; }
+  .panel h2 { font-size: 1rem; margin: 0 0 0.6rem; }
+  #pin-list { list-style: none; margin: 0; padding: 0; max-height: 360px; overflow-y: auto; }
+  #pin-list li {
+    display: flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.2rem;
+    border-bottom: 1px solid var(--parchment-edge); font-size: 0.85rem;
+  }
+  #pin-list li input[type="text"] { flex: 1; min-width: 0; }
+  #pin-list li .coords { font-size: 0.72rem; color: var(--stone); white-space: nowrap; }
+  #pin-list li button { padding: 0.15rem 0.4rem; font-size: 0.75rem; }
+
+  textarea#export-box {
+    width: 100%; height: 220px; font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.78rem; padding: 0.6rem; border-radius: 6px; border: 1px solid var(--parchment-edge);
+  }
+  .hint { font-size: 0.78rem; color: var(--stone); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Location Editor</h1>
+  <p class="note">Click the map to drop a pin, drag to reposition, name it from the dropdown or type a new id. Export when done and paste the JSON back into chat.</p>
+</header>
+
+<div class="controls-bar">
+  <div>
+    <label for="image-select">Map image</label>
+    <select id="image-select"></select>
+  </div>
+  <div>
+    <label for="file-input">…or load a local file instead</label>
+    <input type="file" id="file-input" accept="image/*">
+  </div>
+  <div>
+    <label>&nbsp;</label>
+    <button id="load-existing-btn" class="secondary">Load existing pins for this image</button>
+  </div>
+  <div>
+    <label>&nbsp;</label>
+    <button id="clear-btn" class="danger">Clear all pins</button>
+  </div>
+</div>
+
+<div class="layout">
+  <div class="canvas-wrap empty" id="canvas-wrap">
+    <div id="stage"></div>
+    <p id="empty-msg">Choose a map image above, or load a local file, to begin.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Pins (<span id="pin-count">0</span>)</h2>
+    <ul id="pin-list"></ul>
+    <p class="hint">Type an id in each box — reuse an existing location id to correct its position, or invent a new one for something not in the dataset yet.</p>
+    <hr style="border-color: var(--parchment-edge); margin: 0.8rem 0;">
+    <button id="export-btn">Export JSON</button>
+    <button id="copy-btn" class="secondary">Copy to clipboard</button>
+    <textarea id="export-box" readonly placeholder="Exported JSON will appear here…"></textarea>
+  </div>
+</div>
+
+<script src="app-data.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  const D = typeof GAZETTEER_DATA !== "undefined" ? GAZETTEER_DATA : null;
+
+  // Build the list of known images (overview, minimap, dedicated views)
+  const knownImages = [];
+  if (D) {
+    knownImages.push({ key: "overview", label: "Overview — " + D.map.overview.image, src: D.map.overview.image });
+    knownImages.push({ key: "minimap", label: "Minimap — " + D.map.minimap.image, src: D.map.minimap.image });
+    Object.keys(D.map.views).forEach(k => {
+      knownImages.push({ key: "view:" + k, label: k + " — " + D.map.views[k].image, src: D.map.views[k].image });
+    });
+  }
+
+  const el = {
+    imageSelect: document.getElementById("image-select"),
+    fileInput: document.getElementById("file-input"),
+    loadExistingBtn: document.getElementById("load-existing-btn"),
+    clearBtn: document.getElementById("clear-btn"),
+    canvasWrap: document.getElementById("canvas-wrap"),
+    stage: document.getElementById("stage"),
+    emptyMsg: document.getElementById("empty-msg"),
+    pinList: document.getElementById("pin-list"),
+    pinCount: document.getElementById("pin-count"),
+    exportBtn: document.getElementById("export-btn"),
+    copyBtn: document.getElementById("copy-btn"),
+    exportBox: document.getElementById("export-box"),
+  };
+
+  knownImages.forEach((img, i) => {
+    const opt = document.createElement("option");
+    opt.value = i;
+    opt.textContent = img.label;
+    el.imageSelect.appendChild(opt);
+  });
+  const customOpt = document.createElement("option");
+  customOpt.value = "custom";
+  customOpt.textContent = "(local file loaded below)";
+  customOpt.hidden = true;
+  el.imageSelect.appendChild(customOpt);
+
+  let pins = []; // {id, x, y}
+  let currentImageMeta = null; // {key, label, src}
+  let imgEl = null;
+
+  function setStageImage(src, label) {
+    el.canvasWrap.classList.remove("empty");
+    el.emptyMsg.style.display = "none";
+    el.stage.innerHTML = "";
+    imgEl = document.createElement("img");
+    imgEl.src = src;
+    imgEl.alt = label || "map";
+    el.stage.appendChild(imgEl);
+    imgEl.addEventListener("click", onStageClick);
+    renderPins();
+  }
+
+  function onImageSelectChange() {
+    const val = el.imageSelect.value;
+    if (val === "custom") return; // handled by file input
+    const meta = knownImages[parseInt(val, 10)];
+    currentImageMeta = meta;
+    pins = [];
+    setStageImage(meta.src, meta.label);
+    renderPinList();
+  }
+  el.imageSelect.addEventListener("change", onImageSelectChange);
+
+  el.fileInput.addEventListener("change", (ev) => {
+    const file = ev.target.files[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    currentImageMeta = { key: "custom:" + file.name, label: file.name, src: url };
+    customOpt.hidden = false;
+    customOpt.textContent = "(local) " + file.name;
+    el.imageSelect.value = "custom";
+    pins = [];
+    setStageImage(url, file.name);
+    renderPinList();
+  });
+
+  function onStageClick(ev) {
+    // Ignore clicks that originate from dragging a pin (handled separately)
+    if (ev.__fromPinDrag) return;
+    const rect = imgEl.getBoundingClientRect();
+    const x = ((ev.clientX - rect.left) / rect.width) * 100;
+    const y = ((ev.clientY - rect.top) / rect.height) * 100;
+    const id = "new_location_" + (pins.length + 1);
+    pins.push({ id, x: round1(x), y: round1(y), isNew: true });
+    renderPins();
+    renderPinList();
+  }
+
+  function round1(n) { return Math.round(n * 10) / 10; }
+
+  function renderPins() {
+    if (!imgEl) return;
+    // Remove existing pin elements, keep the img
+    Array.from(el.stage.querySelectorAll(".pin")).forEach(p => p.remove());
+    pins.forEach((pin, idx) => {
+      const p = document.createElement("div");
+      p.className = "pin" + (pin.isNew ? " new-pin" : "");
+      p.style.left = pin.x + "%";
+      p.style.top = pin.y + "%";
+      p.textContent = idx + 1;
+      p.title = pin.id;
+      p.addEventListener("mousedown", (ev) => startDrag(ev, idx));
+      el.stage.appendChild(p);
+    });
+  }
+
+  let dragging = null;
+  function startDrag(ev, idx) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    dragging = idx;
+    document.addEventListener("mousemove", onDragMove);
+    document.addEventListener("mouseup", onDragEnd);
+  }
+  function onDragMove(ev) {
+    if (dragging === null || !imgEl) return;
+    const rect = imgEl.getBoundingClientRect();
+    let x = ((ev.clientX - rect.left) / rect.width) * 100;
+    let y = ((ev.clientY - rect.top) / rect.height) * 100;
+    x = Math.max(0, Math.min(100, x));
+    y = Math.max(0, Math.min(100, y));
+    pins[dragging].x = round1(x);
+    pins[dragging].y = round1(y);
+    renderPins();
+    renderPinList(true);
+  }
+  function onDragEnd() {
+    dragging = null;
+    document.removeEventListener("mousemove", onDragMove);
+    document.removeEventListener("mouseup", onDragEnd);
+  }
+
+  function renderPinList(skipRebuildInputs) {
+    el.pinCount.textContent = pins.length;
+    if (skipRebuildInputs) {
+      // Just update the coordinate readouts, leave text inputs focused/untouched
+      Array.from(el.pinList.children).forEach((li, idx) => {
+        const coordsSpan = li.querySelector(".coords");
+        if (coordsSpan && pins[idx]) coordsSpan.textContent = pins[idx].x + "%, " + pins[idx].y + "%";
+      });
+      return;
+    }
+    el.pinList.innerHTML = "";
+    pins.forEach((pin, idx) => {
+      const li = document.createElement("li");
+
+      const numSpan = document.createElement("span");
+      numSpan.textContent = (idx + 1) + ".";
+      numSpan.style.opacity = "0.6";
+      li.appendChild(numSpan);
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.value = pin.id;
+      input.addEventListener("input", () => { pin.id = input.value; pin.isNew = false; renderPins(); });
+      li.appendChild(input);
+
+      const coords = document.createElement("span");
+      coords.className = "coords";
+      coords.textContent = pin.x + "%, " + pin.y + "%";
+      li.appendChild(coords);
+
+      const delBtn = document.createElement("button");
+      delBtn.textContent = "✕";
+      delBtn.className = "danger";
+      delBtn.addEventListener("click", () => {
+        pins.splice(idx, 1);
+        renderPins();
+        renderPinList();
+      });
+      li.appendChild(delBtn);
+
+      el.pinList.appendChild(li);
+    });
+  }
+
+  el.loadExistingBtn.addEventListener("click", () => {
+    if (!currentImageMeta || !D) { alert("Pick a known map image first (existing pins aren't available for local files)."); return; }
+    let hotspots = null;
+    if (currentImageMeta.key === "overview") hotspots = D.map.overview.hotspots.map(h => ({ id: h.id, x: h.x, y: h.y }));
+    else if (currentImageMeta.key === "minimap") hotspots = D.map.minimap.hotspots.map(h => ({ id: h.id, x: h.x, y: h.y }));
+    else if (currentImageMeta.key.startsWith("view:")) {
+      const viewKey = currentImageMeta.key.slice(5);
+      hotspots = (D.map.views[viewKey].hotspots || []).map(h => ({ id: h.id, x: h.x, y: h.y }));
+    }
+    if (!hotspots || !hotspots.length) { alert("No existing pins recorded for this image."); return; }
+    pins = hotspots.map(h => ({ id: h.id, x: h.x, y: h.y, isNew: false }));
+    renderPins();
+    renderPinList();
+  });
+
+  el.clearBtn.addEventListener("click", () => {
+    if (!confirm("Clear all pins on this image?")) return;
+    pins = [];
+    renderPins();
+    renderPinList();
+  });
+
+  el.exportBtn.addEventListener("click", () => {
+    const out = {
+      image: currentImageMeta ? currentImageMeta.src : null,
+      imageKey: currentImageMeta ? currentImageMeta.key : null,
+      hotspots: pins.map(p => ({ id: p.id, x: p.x, y: p.y }))
+    };
+    el.exportBox.value = JSON.stringify(out, null, 2);
+  });
+
+  el.copyBtn.addEventListener("click", () => {
+    if (!el.exportBox.value) { alert("Export first, then copy."); return; }
+    el.exportBox.select();
+    document.execCommand("copy");
+    el.copyBtn.textContent = "Copied!";
+    setTimeout(() => { el.copyBtn.textContent = "Copy to clipboard"; }, 1200);
+  });
+
+})();
+</script>
+</body>
+</html>
